@@ -1,159 +1,87 @@
 from FE_Functions import *
 
-def obstacleParking(obstacleParkingDirection, recordListInput):
-    driveMotor = Motor(Port.B, Direction.COUNTERCLOCKWISE, [1], False, 500);
-    steerMotor = Motor(Port.D, Direction.COUNTERCLOCKWISE, [1], False, 5);
-    visionMotor = Motor(Port.E, Direction.CLOCKWISE, [1], False, 5);
-    
-    selfDrivingCar = FutureEngineers(steerMotor, driveMotor, visionMotor);
+def obstacleParking(robotDirection, recordListInput):
+    driveMotor = Motor(Port.A, Direction.CLOCKWISE, [1], False, 500)
+    steerMotor = Motor(Port.B, Direction.COUNTERCLOCKWISE, [1], False, 5)
+    visionMotor = Motor(Port.F, Direction.CLOCKWISE, [1], False, 5)
 
-    visionMotor.run_target(1000, 0, Stop.HOLD, False);
-    hub.imu.reset_heading(0);
+    monke = FutureEngineers(driveMotor, steerMotor, visionMotor)
 
-    if (obstacleParkingDirection == 1): # CLOCKWISE
-        if (recordListInput[1][0] == "Parking"):
-            # nParking Start
+    hub.imu.reset_heading(0)
 
-            selfDrivingCar.street(-600, 0, 750, 650);
-            driveMotor.hold();
-            selfDrivingCar.turn(1, 88, 30, 850, 750);
-            driveMotor.hold();
-            selfDrivingCar.streetLine(-100, 92, 650, 550);
-            driveMotor.hold();
+    if (robotDirection == 1): 
+        # CLOCKWISE
 
-            selfDrivingCar.street(370, 90, 850, 800);
-            selfDrivingCar.drive(170, 850, 650, -35, -35);
-            driveMotor.hold();
+        try:
+            i = 1
+            headingTarget = 90
 
-        else:
-            selfDrivingCar.street(-250, 0, 750, 650);
-            driveMotor.hold();
-            selfDrivingCar.turn(1, 88, 30, 850, 750);
+            if ("Parking" not in recordListInput[i]):
+                monke.driveMotor.control.limits(acceleration=800)
+                monke.street(-150, 0, 2000, 2000)
+                monke.look(0, False)
+                monke.fastAcceleration(True)
+                monke.street(-560, 0, 1000, 450)
+                monke.HOLD(100)
 
-            if (recordListInput[1][2] == "Parking"):
-                driveMotor.hold();
-                selfDrivingCar.streetLine(-100, 90, 750, 650);
-                driveMotor.hold();
-                selfDrivingCar.drive(680, 1000, 1000, -10, -5);
-                selfDrivingCar.turnDuration(600, 120, 30, 1000, 1000);
-                selfDrivingCar.drive(260, 850, 550, -35, -35);
-                driveMotor.hold();
+                monke.fastAcceleration(False)
+                monke.street(100, 0, 2000, 2000)
+                monke.fastAcceleration(True)
+                monke.street(230, 0, 2000, 2000)
+                monke.look(0, False)
+                monke.turn(1, headingTarget - 3, 40, 2000, 2000)
+                monke.drive(600, 2000, 2000, -15, -6)
 
-            else:
-                selfDrivingCar.driveLine(1800, 1000, 1000, -10, -1);
+                i += 1
 
-                for _robotLaps in range (8):
-                    hub.imu.reset_heading(0);
+                while ("Parking" not in recordListInput[i]):
+                    monke.driveLine(1200, 2000, 2000, -12, -3)
+                    monke.turn(1, headingTarget + 80, 40, 2000, 2000)
+                    monke.street(600, headingTarget + 80, 2000, 2000)
+                    monke.turn(1, headingTarget + 88, 40, 2000, 2000)
 
-                    if (recordListInput[(_robotLaps + 2) % 4][0] == "Parking"):
-                        # nParking Loop
+                    i = (i + 1) % 4
+                    headingTarget += 90
 
-                        selfDrivingCar.drive(300, 1000, 1000, -1, -1);
-                        selfDrivingCar.streetStall(10, -2, 1000, 1000, 300);
-                        selfDrivingCar.street(-500, 0, 750, 650);
-                        driveMotor.hold();
+                monke.drive(1100, 2000, 2000, -12, -3)
+                monke.street(700, headingTarget + 40, 2000, 2000)
+                monke.look(90, False)
+                monke.streetStall(300, headingTarget, 800, 600, 100)
 
-                        selfDrivingCar.turn(1, 90, 30, 850, 750);
-                        selfDrivingCar.street(500, 90, 900, 850);
-                        selfDrivingCar.turn(1, 60, 30, 850, 550);
-                        driveMotor.hold();
+            monke.driveMotor.control.limits(acceleration= 800)
+            monke.street(-20, 0, 2000, 2000)
+            monke.turn(-1, 90, 40, 2000, 2000)
+            monke.look(0, False)
+            monke.streetStall(-10, 90, 2000, 500, 200)
+            monke.fastAcceleration(False)
+            monke.street(100, 0, 2000, 2000)
+            monke.fastAcceleration(True)
 
-                        break;
+            if (recordListInput[i][0] == "Parking"):
+                # nParking
+                monke.street(820, -2, 2000, 2000)
 
-                    else:
-                        selfDrivingCar.turn(1, 88, 18, 950, 900);
+            elif (recordListInput[i][2] == "Parking"):
+                # fParking
+                monke.street(1730, -2, 2000, 2000)
 
-                        if (recordListInput[(_robotLaps + 2) % 4][2] == "Parking"):
-                            # fParking Loop
+            monke.look(90, False)
+            monke.turnStall(1, -70, -90, 40, 2000, 2000, 200)
 
-                            selfDrivingCar.drive(510, 1000, 1000, -10, -5);
-                            selfDrivingCar.turnDuration(530, 130, 30, 1000, 1000);
-                            selfDrivingCar.turn(1, 90, 30, 850, 550);
-                            selfDrivingCar.street(10, 90, 850, 750);
-                            selfDrivingCar.drive(100, 850, 550, -35, -35);
-                            driveMotor.hold();
+        finally:
+            monke.look(90, False)
+            wait(500)
 
-                            break;
-                            
-                        else:
-                            selfDrivingCar.driveLine(1800, 1000, 1000, -10, -1);
+    else:
+        # COUNTERCLOCKWISE
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+        pass
 
-    else: # COUNTERCLOCKWISE
-        if (recordListInput[1][0] == "Parking"):
-            # nParking Start
+if __name__ == "__main__":
+    print(hub.battery.voltage())
+    hub.speaker.beep(500)
 
-            selfDrivingCar.street(-600, 0, 750, 650);
-            driveMotor.hold();
-            selfDrivingCar.turn(1, -88, 30, 850, 750);
-            driveMotor.hold();
-            selfDrivingCar.streetLine(-100, -90, 650, 550);
-            driveMotor.hold();
+    recordListMain = [["Parking", "---", "", "---"], ["", "---", "", "---"], ["", "---", "", "---"], ["", "---", "", "---"]]
 
-            selfDrivingCar.street(370, -90, 850, 800);
-            selfDrivingCar.drive(170, 850, 650, 35, 35);
-            driveMotor.hold();
-
-        else:
-            selfDrivingCar.street(-320, 0, 750, 650);
-            driveMotor.hold();
-            selfDrivingCar.turn(1, -88, 30, 850, 750);
-
-            if (recordListInput[1][2] == "Parking"):
-                # fParking Start
-                driveMotor.hold();
-                selfDrivingCar.streetLine(-100, -90, 750, 650);
-                driveMotor.hold();
-                selfDrivingCar.drive(680, 1000, 1000, 10, 5);
-                selfDrivingCar.turnDuration(650, -120, 30, 1000, 1000);
-                selfDrivingCar.drive(260, 850, 550, 35, 35);
-                driveMotor.hold();
-
-            else:
-                selfDrivingCar.driveLine(1800, 1000, 1000, 7, 1);
-
-                for _robotLaps in range (8):
-                    hub.imu.reset_heading(0);
-
-                    if (recordListInput[(_robotLaps + 2) % 4][0] == "Parking"):
-                        # nParking Loop
-
-                        selfDrivingCar.drive(300, 1000, 1000, 1, 1);
-                        selfDrivingCar.streetStall(10, 2, 1000, 1000, 300);
-                        selfDrivingCar.street(-600, 0, 750, 650);
-                        driveMotor.hold();
-
-                        selfDrivingCar.turn(1, -90, 30, 850, 750);
-                        selfDrivingCar.street(500, -90, 900, 850);
-                        selfDrivingCar.turn(1, -60, 30, 850, 550);
-                        driveMotor.hold();
-
-                        break;
-
-                    else:
-                        selfDrivingCar.turn(1, -88, 25, 950, 900);
-
-                        if (recordListInput[(_robotLaps + 2) % 4][2] == "Parking"):
-                            # fParking Loop
-
-                            selfDrivingCar.drive(500, 1000, 1000, 10, 5);
-                            selfDrivingCar.turnDuration(600, -130, 30, 1000, 1000);
-                            selfDrivingCar.turn(1, -90, 30, 850, 550);
-                            selfDrivingCar.drive(100, 850, 550, 35, 35);
-                            driveMotor.hold();
-
-                            break;
-                            
-                        else:
-                            selfDrivingCar.driveLine(1800, 1000, 1000, 5, 1);
-
-    selfDrivingCar.motorClose();
-
-# recordListMain = [["", "---", "", "---"], ["", "---", "", "---"], ["", "---", "", "---"], ["", "---", "Parking", "---"]];
-# _timer = StopWatch();
-
-# obstacleParking(1, recordListMain);
-# print(_timer.time());
+    obstacleParking(1, recordListMain)
+    print(clock.time())
