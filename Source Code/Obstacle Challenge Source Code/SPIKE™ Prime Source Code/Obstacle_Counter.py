@@ -15,7 +15,7 @@ def nNormalnRedfGreen(monke):
     monke.turn(1, 90, 40, 1000, 750)
     monke.streetStall(150, 90, 750, 700, 100)
 
-def obstacleCounterclockwise(recordListInput, robotLaps):
+def obstacleCounter(recordListInput, robotLaps):
     driveMotor = Motor(Port.A, Direction.CLOCKWISE, [1], False, 500)
     steerMotor = Motor(Port.B, Direction.COUNTERCLOCKWISE, [1], False, 5)
     visionMotor = Motor(Port.F, Direction.CLOCKWISE, [1], False, 5)
