@@ -83,7 +83,7 @@ Motor selection is a crucial part of building the robot since its maneuverabilit
 
 <sub> RPM – rotations per minute, Ncm – newton centimeter </sub>
 
-The SPIKE™ Medium Motor was shown to be negligibly faster than the SPIKE™ Large Motor. However, the SPIKE™ Large Motor was able to provide a substantial amount of power compared to its counterpart. With these pieces of  information, the team had chosen to use SPIKE™ Large Motors for both driving and steering management, using two (2) SPIKE™ Large Motors in total for the mobility of the robot. 
+The SPIKE™ Medium Motor was shown to be negligibly faster than the SPIKE™ Large Motor. However, the SPIKE™ Large Motor was able to provide a substantial amount of power compared to its counterpart. With these pieces of information, the team had chosen to use SPIKE™ Large Motors for both driving and steering management, using two (2) SPIKE™ Large Motors in total for the mobility of the robot. 
 
 ### 1.2. Robot Driving Mechanism
 
@@ -119,7 +119,7 @@ In the field of robotics, power management serves as the cornerstone that ensure
 
 The SPIKE™ Large Hub serves as the primary controller of the robot, controlling most of the components of the robot including its motors and sensors. It is where the robot's main program is downloaded; integrated with MicroPython as the operating system. The hub features six LPF2 input/output ports and a built-in six-axis gyro sensor, which includes a three-axis accelerometer and three-axis gyroscope. Additionally, it has a built-in speaker with a maximum sound quality of 12-bit 16 KHz and can connect to devices via Bluetooth or USB Cable. The team selected this hub as the primary controller for the robot due to its comprehensive capabilities and easy-to-use interface.
 
-#### 2.1.2   SPIKE™ Large Hub Rechargeable Battery
+#### 2.1.2 SPIKE™ Large Hub Rechargeable Battery
 
 The SPIKE™ Large Hub Rechargeable Battery is a lithium-ion polymer battery designed to power the SPIKE™ Large Hub, which in turn powers all SPIKE™ motors and sensors. It can be charged inside the Hub using a micro-USB cable and can be removed easily. With a capacity of 2100 mAh and an output of 7.3V, this battery has a lifetime of over 500 cycles, meaning it can handle more than 500 charge-discharge cycles throughout its lifespan.
 
@@ -129,7 +129,7 @@ Self-driving cars are highly dependent on their sensors in order to drive autono
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/2.2.0.1.png?">
 
-#### 2.2.1.   SPIKE™ Color Sensor 
+#### 2.2.1. SPIKE™ Color Sensor 
 
 The SPIKE™ Color Sensor has the capacity to measure color RGB/HSV, reflection intensity, and ambient intensity. It has a sample rate of 100 Hz and an optimal reading distance of 16 mm. It has three (3) LEDs that can be turned on and off individually at different power levels, making it a possible light output. The team selected this color sensor due to its excellent performance in color detection, far better than the other color sensors the team have.
 
@@ -137,7 +137,7 @@ This color sensor is positioned on the front of the robot where it is facing dow
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/2.2.1.1.png?">
 
-#### 2.2.2.   SPIKE™ Distance Sensor
+#### 2.2.2. SPIKE™ Distance Sensor
 
 The SPIKE™ Distance Sensor has the ability to measure the distance to a surface in front of it with the use of ultrasonic technology. It has a sample rate of 100 Hz and a distance sensing range of 5 cm to 200 cm +/- 2 cm. It has an entrance angle of +/- 35° and has four (4) LEDs that can be turned on and off individually at different power levels, making it a possible light output. It sends inaudible high frequency sound waves from one “eye” while the other “eye” will measure how long it takes the sound waves to reflect through it.
 
@@ -145,13 +145,13 @@ This distance sensor is placed on the front of the robot, which is used to deter
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/2.2.2.1.png?">
 
-#### 2.2.3.   SPIKE™ Gyro Sensor
+#### 2.2.3. SPIKE™ Gyro Sensor
 
 The built-in SPIKE™ Gyro Sensor can keep track of the angle the hub is currently facing. It consists of a three-axis accelerometer and three-axis gyroscope. The gyroscope part records the change of rotation of the hub and measures the total angle of rotation in degrees, enabling it to return the hub's exact rotation angle around a given axis. Combined with the accelerometer, it allows the hub to determine its orientation and acceleration along a given axis. 
 
 The robot relies on this gyro sensor for most of its movements, facilitating its accurate navigation across the whole game field. It enables the robot to follow a specific angle when moving, thus making it drive straight and turn into a particular angle efficiently.
 
-#### 2.2.4.   OpenMV Cam H7 Plus
+#### 2.2.4. OpenMV Cam H7 Plus
 
 The OpenMV Cam H7 Plus is a compact, low-power microcontroller board that functions as an interactive camera, making it easy to implement- real-world applications using machine vision. This camera is programmable using high-level Python scripts(powered by the MicroPython operating system). This makes it easier to deal with the complex outputs of machine vision algorithms and working with high level data structures. 
 
@@ -161,9 +161,9 @@ The team selected the OpenMV Cam H7 Plus to specifically detect traffic signs an
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/2.2.4.1.png?">
 
-#### 2.2.5.   Additional Information
+#### 2.2.5. Additional Information
 
-Both the SPIKE™ Distance Sensor and OpenMV Cam H7 Plus are mounted to a SPIKE™ Large Motor. This enables these two sensors to rotate approximately 135° in both directions starting from the middle, covering a wide part of the surrounding area of the robot. The team has done this since the limited ports of the SPIKE™ Large Hub cannot provide more room for sensors around the robot. This motor serves as a helpful tool in the detection of the walls, obstacles, and overall surroundings of the robot while it is in the game field.
+Both the SPIKE™ Distance Sensor and OpenMV Cam H7 Plus are mounted to a SPIKE™ Large Motor. For more information, visit [Rotating Camera & Distance Sensor](#41-rotating-camera--distance-sensor)
 
 ***
 
@@ -279,9 +279,11 @@ The robot must continue to the third lap in the in the opposite direction if the
 
 ## 4. Engineering Factor
 
-The whole physical structure of the robot was completely designed and manufactured by the team out of LEGO® Technic. While there are standard off-the-shelf electrical components such as motors and sensors for the robot's functionality, the robot's design remains unique, embodying innovative features that set it apart from typical robots. 
+The whole physical structure of the robot was completely designed and manufactured by the team out of LEGO® Technic. While there are standard off-the-shelf electrical components such as motors and sensors for the robot's functionality, the robot's design remains unique, embodying innovative features that set it apart from typical robots. Here are such features:
 
-In order to maximize the functionality of the camera and distance sensor, the robot is equipped with a SPIKE™ Large Motor that allows these sensors to rotate for approximately 135° in both directions starting from the middle. This rotating capability enables the sensors to capture a wider view of the robot's surroundings, enhancing the robot's ability to detect and navigate through obstacles and the whole game field. 
+### 4.1 Rotating Camera & Distance Sensor
+
+In order to maximize the functionality of the camera and distance sensor, the robot is equipped with a SPIKE™ Large Motor that allows these sensors to rotate for approximately 135° in both directions starting from the middle. This rotating capability enables these two (2) sensors to capture a wider view of the robot's surroundings, enhancing the robot's ability to detect and navigate through obstacles and the whole game field. The team developed this feature since the limited ports of the SPIKE™ Large Hub cannot provide room for more sensors around the robot. This motor serves as a helpful tool in the detection of the walls, obstacles, and overall surroundings of the robot while it is in the game field.
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/4.0.1.png?">
 
