@@ -209,6 +209,8 @@ class FutureEngineers:
             wait(800)
             
         print("\n\n\n")
+        self.steerMotor.run_target(1000, 0, Stop.HOLD, False)
+        wait(700)
         end
 
     def motorClose(self):
@@ -498,22 +500,19 @@ class FutureEngineers:
             streetTheLineErrorKpMax = self.backwardStreetErrorKp
             streetTheLineErrorKdMax = self.backwardStreetErrorKd
 
-        while True:
+        while (intHSV(1) < 30):
             streetTheLineErrorKp = linearMap(self.driveMotor.speed(), 0, 1000, 0, streetTheLineErrorKpMax)
             streetTheLineErrorKd = linearMap(self.driveMotor.speed(), 0, 1000, 0, streetTheLineErrorKdMax)
             streetTheLineErrorSummation, streetTheLineErrorPrevious, streetTheLineErrorCorrection = pid((streetTheLineHeadingTarget - hub.imu.heading()), streetTheLineErrorKp, self.streetErrorKi, streetTheLineErrorKd, streetTheLineErrorKm, streetTheLineErrorSummation, streetTheLineErrorPrevious)
             
             self.move(streetTheLineSpeedFinal, streetTheLineErrorCorrection)
 
-            if (intHSV(1) > 30):
-                while (intHSV(1) > 15):
-                    streetTheLineHue = intHSV(0)
+        while (intHSV(1) > 15):
+            streetTheLineHue = intHSV(0)
 
-                    if (streetTheLineHue > streetTheLineHueMax):
-                        hub.speaker.beep(500, 10)
-                        streetTheLineHueMax = streetTheLineHue
-
-                break
+            if (streetTheLineHue > streetTheLineHueMax):
+                hub.speaker.beep(500, 10)
+                streetTheLineHueMax = streetTheLineHue
 
         if (190 < streetTheLineHueMax and streetTheLineHueMax < 290):
             return -1
