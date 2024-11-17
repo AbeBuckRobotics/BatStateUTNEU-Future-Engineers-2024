@@ -171,15 +171,24 @@ Both the SPIKE™ Distance Sensor and OpenMV Cam H7 Plus are mounted to a SPIKE�
 
 In order to detect and negotiate with the present obstacles on the field, a specific strategy must be well-planned to possibly complete three (3) laps in both Open and Obstacle Challenge Rounds. The team had spent a fair amount of time considering different thoughts and ideas to efficiently manage these obstacles; always giving space for new yet excellent ideas to be added in the team's strategy.
 
-## 3.1 Open Challenge
+## 3.1. Open Challenge
 
 In Open Challenge Rounds, the only obstacles present on the game field are its outer boundary wall and the randomly placed inner wall. The robot must not touch the outer wall and must not move the inner wall to successfully finish the three laps requirement.
 
-## 3.2 Obstacle Challenge
+### 3.1.1. Determine Driving Direction
+
+To determine if the driving direction is clockwise or counterclockwise, the SPIKE™ Color Sensor is used. This sensor is programmed to record the color of the line the robot will first pass: if it is orange, the driving direction is clockwise; if it is blue, the driving direction is counterclockwise.
+
+### 3.1.2. Wall Avoidance
+
+To successfully avoid touching the outer boundary wall, the robot is programmed to perform a 90° turn when it is within a specific distance from the wall. This ensures that the robot will not be near the outer wall after completing each turn. The SPIKE™ Distance Sensor is used to detect if the robot is about to collide with the outer wall. If a collision is about to occur, the robot is programmed to steer away from the wall. Additionally, the SPIKE™ Gyro Sensor is used which allows the robot to follow a specific angle, ensuring that the robot turns properly and drives straight after each turn.
+
+## 3.2. Obstacle Challenge
 
 In Obstacle Challenge Rounds, the number of obstacles on the game field increases significantly. In addition to the outer boundary wall and the randomly placed inner wall, there are up to seven (7) traffic signs and two (2) parking lot boundaries, all which are randomly positioned on the game field. The traffic signs are also random in color; they may be green or red. The robot must pass a green traffic sign to the left and a red traffic sign to the right, and the robot must park between the parking lot boundaries after finishing three laps. Lastly, the robot must not touch any of the traffic signs and parking lot boundaries.
 
 ### 3.2.1. Traffic Sign Detection
+
 The camera is programmed to use LAB thresholds to identify the color of the traffic signs, which should be either green or red. A proper given threshold can be obtained with different ways, but trial and error should be enough and being familiarized with the LAB color space could help. Here are the LAB thresholds of the team for the obstacles:
 
 ```py
@@ -289,19 +298,19 @@ The robot must continue to the third lap in the in the opposite direction if the
 
 The whole physical structure of the robot was completely designed and manufactured by the team out of LEGO® Technic. While there are standard off-the-shelf electrical components such as motors and sensors for the robot's functionality, the robot's design remains unique, embodying innovative features that set it apart from typical robots. Here are such features:
 
-### 4.1 Rotating Camera & Distance Sensor
+### 4.1. Rotating Camera & Distance Sensor
 
 In order to maximize the functionality of the camera and distance sensor, the robot is equipped with a SPIKE™ Large Motor that allows these sensors to rotate for approximately 135° in both directions starting from the middle. This rotating capability enables these two (2) sensors to capture a wider view of the robot's surroundings, enhancing the robot's ability to detect and navigate through obstacles and the whole game field. The team developed this feature since the limited ports of the SPIKE™ Large Hub cannot provide room for more sensors around the robot. This motor serves as a helpful tool in the detection of the walls, obstacles, and overall surroundings of the robot while it is in the game field.
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/4.0.1.png?">
 
-### 4.2 Side Free Wheels
+### 4.2. Side Free Wheels
 
 The robot is equipped with medium-size gears on its sides, acting as free wheels, allowing for uninterrupted movements when it is about to encounter a wall at an angle. Normally, the robot will be stuck or interrupted when a wall is approached diagonally. However, these free wheels enable the robot to glide smoothly along the surface of the wall, perfectly aligning itself to the wall. This design minimizes the possible disruptions in movement and enables the robot to adjust its position precisely. 
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/4.0.2.png?">
 
-### 4.3 Camera LEGO Chassis
+### 4.3. Camera LEGO Chassis
 
 The OpenMV Cam H7 Plus is securely placed inside the custom-designed LEGO camera mount which was uniquely designed by the team. The mount structures integrate LEGO components, making it easy to attach the camera onto the rotating large motors. This LEGO design maintains its uniformity with the overall robot and allows for convenient attachment of additional external components, such as a color sensor placed behind the camera.
 
