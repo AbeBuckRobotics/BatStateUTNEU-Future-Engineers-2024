@@ -46,7 +46,7 @@ Meet the members of the BSU Spartan Team, each bringing unique skills and dedica
 
 ***
 
-# Introduction
+## Introduction
 
 This engineering documentation provides an overview of the BSU Spartan Team's self-driving car, designed for the WRO Turkiye 2024 International Finals. It covers Mobility Management, detailing motor selection, chassis design, and assembly based on principles of speed, torque, and power; Power and Sense Management, explaining the vehicle’s power sources and sensor configurations with a wiring diagram and BOM; and Obstacle Management, outlining strategies for navigating the course with flow diagrams and detailed code. Visual documentation includes images of the robot from all sides and team photos, while performance videos showcase the robot’s functionality across challenges.
 
@@ -70,7 +70,7 @@ The BSU Spartan Team presents this self-driving robot for the World Robot Olympi
 
 ***
 
-## 1. Mobility Management
+# 1. Mobility Management
 
 ### 1.1. Motor Selection
 
@@ -107,29 +107,29 @@ As for the weight distribution of the robot, the weight is focused on the rear s
 
 ***
 
-## 2. Power and Sense Management
+# 2. Power and Sense Management
 
-### 2.1. Power Management
+## 2.1. Power Management
 
 In the field of robotics, power management serves as the cornerstone that ensures the operation of an autonomous system. It serves as the brain and heart of the robot. Not only does it play a role in supplying data and energy to the various components, but it also plays a role in optimizing the overall performance of the robot. Below are the figures and details about the components of the robot in the power management section:
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/2.1.0.1.png?">
 
-#### 2.1.1. SPIKE™ Large Hub
+### 2.1.1. SPIKE™ Large Hub
 
 The SPIKE™ Large Hub serves as the primary controller of the robot, controlling most of the components of the robot including its motors and sensors. It is where the robot's main program is downloaded; integrated with MicroPython as the operating system. The hub features six LPF2 input/output ports and a built-in six-axis gyro sensor, which includes a three-axis accelerometer and three-axis gyroscope. Additionally, it has a built-in speaker with a maximum sound quality of 12-bit 16 KHz and can connect to devices via Bluetooth or USB Cable. The team selected this hub as the primary controller for the robot due to its comprehensive capabilities and easy-to-use interface.
 
-#### 2.1.2 SPIKE™ Large Hub Rechargeable Battery
+### 2.1.2 SPIKE™ Large Hub Rechargeable Battery
 
 The SPIKE™ Large Hub Rechargeable Battery is a lithium-ion polymer battery designed to power the SPIKE™ Large Hub, which in turn powers all SPIKE™ motors and sensors. It can be charged inside the Hub using a micro-USB cable and can be removed easily. With a capacity of 2100 mAh and an output of 7.3V, this battery has a lifetime of over 500 cycles, meaning it can handle more than 500 charge-discharge cycles throughout its lifespan.
 
-### 2.2. Sense Management
+## 2.2. Sense Management
 
 Self-driving cars are highly dependent on their sensors in order to drive autonomously. That is why the robot consists of different sensors to properly execute its movements with regards to its position on the game field and obstacles surrounding it. Here are the components of the robot related to its sense management:
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/2.2.0.1.png?">
 
-#### 2.2.1. SPIKE™ Color Sensor 
+### 2.2.1. SPIKE™ Color Sensor 
 
 The SPIKE™ Color Sensor has the capacity to measure color RGB/HSV, reflection intensity, and ambient intensity. It has a sample rate of 100 Hz and an optimal reading distance of 16 mm. It has three (3) LEDs that can be turned on and off individually at different power levels, making it a possible light output. The team selected this color sensor due to its excellent performance in color detection, far better than the other color sensors the team have.
 
@@ -137,7 +137,7 @@ This color sensor is positioned on the front of the robot where it is facing dow
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/2.2.1.1.png?">
 
-#### 2.2.2. SPIKE™ Distance Sensor
+### 2.2.2. SPIKE™ Distance Sensor
 
 The SPIKE™ Distance Sensor has the ability to measure the distance to a surface in front of it with the use of ultrasonic technology. It has a sample rate of 100 Hz and a distance sensing range of 5 cm to 200 cm +/- 2 cm. It has an entrance angle of +/- 35° and has four (4) LEDs that can be turned on and off individually at different power levels, making it a possible light output. It sends inaudible high frequency sound waves from one “eye” while the other “eye” will measure how long it takes the sound waves to reflect through it.
 
@@ -145,13 +145,13 @@ This distance sensor is placed on the front of the robot, which is used to deter
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/2.2.2.1.png?">
 
-#### 2.2.3. SPIKE™ Gyro Sensor
+### 2.2.3. SPIKE™ Gyro Sensor
 
 The built-in SPIKE™ Gyro Sensor can keep track of the angle the hub is currently facing. It consists of a three-axis accelerometer and three-axis gyroscope. The gyroscope part records the change of rotation of the hub and measures the total angle of rotation in degrees, enabling it to return the hub's exact rotation angle around a given axis. Combined with the accelerometer, it allows the hub to determine its orientation and acceleration along a given axis. 
 
 The robot relies on this gyro sensor for most of its movements, facilitating its accurate navigation across the whole game field. It enables the robot to follow a specific angle when moving, thus making it drive straight and turn into a particular angle efficiently.
 
-#### 2.2.4. OpenMV Cam H7 Plus
+### 2.2.4. OpenMV Cam H7 Plus
 
 The OpenMV Cam H7 Plus is a compact, low-power microcontroller board that functions as an interactive camera, making it easy to implement- real-world applications using machine vision. This camera is programmable using high-level Python scripts(powered by the MicroPython operating system). This makes it easier to deal with the complex outputs of machine vision algorithms and working with high level data structures. 
 
@@ -161,17 +161,25 @@ The team selected the OpenMV Cam H7 Plus to specifically detect traffic signs an
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/2.2.4.1.png?">
 
-#### 2.2.5. Additional Information
+### 2.2.5. Additional Information
 
 Both the SPIKE™ Distance Sensor and OpenMV Cam H7 Plus are mounted to a SPIKE™ Large Motor. For more information, visit [Rotating Camera & Distance Sensor](#41-rotating-camera--distance-sensor)
 
 ***
 
-## 3. Obstacle Management
+# 3. Obstacle Management
 
-In order to detect the position and negotiate with the color of the obstacles, a specific strategy must be well-planned to possibly finish three (3) laps in Obstacle Challenge Rounds. The team had spent a fair amount of time considering different thoughts and ideas to efficiently manage the obstacles on the game field; always giving space for new yet excellent ideas to be added in the team's strategy.
+In order to detect and negotiate with the present obstacles on the field, a specific strategy must be well-planned to possibly complete three (3) laps in both Open and Obstacle Challenge Rounds. The team had spent a fair amount of time considering different thoughts and ideas to efficiently manage these obstacles; always giving space for new yet excellent ideas to be added in the team's strategy.
 
-### 3.1. Traffic Sign Detection
+## 3.1 Open Challenge
+
+In Open Challenge Rounds, the only obstacles present on the game field are its outer boundary wall and the randomly placed inner wall. The robot must not touch the outer wall and must not move the inner wall to successfully finish the three laps requirement.
+
+## 3.2 Obstacle Challenge
+
+In Obstacle Challenge Rounds, the number of obstacles on the game field increases significantly. In addition to the outer boundary wall and the randomly placed inner wall, there are up to seven (7) traffic signs and two (2) parking lot boundaries, all which are randomly positioned on the game field. The traffic signs are also random in color; they may be green or red. The robot must pass a green traffic sign to the left and a red traffic sign to the right, and the robot must park between the parking lot boundaries after finishing three laps. Lastly, the robot must not touch any of the traffic signs and parking lot boundaries.
+
+### 3.2.1. Traffic Sign Detection
 The camera is programmed to use LAB thresholds to identify the color of the traffic signs, which should be either green or red. A proper given threshold can be obtained with different ways, but trial and error should be enough and being familiarized with the LAB color space could help. Here are the LAB thresholds of the team for the obstacles:
 
 ```py
@@ -230,7 +238,7 @@ gtsCall = camera.call('blob')
 
 The main program for traffic sign detection is provided here: [`FE_ObstacleRecognition`](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Source%20Code/Obstacle%20Challenge%20Source%20Code/Camera%20Source%20Code/FE_ObstacleRecognition.py). This program is uploaded to the OpenMV Cam H7 Plus. For the step by step guide how the program is compiled and uploaded to the camera, refer to [Camera Program Guide](#camera-program-guide)
 
-### 3.2. Parking Lot Detection
+### 3.2.2. Parking Lot Detection
 
 In order to determine if there is a presence of parking lot in each straightforward section, the distance sensor of the robot is used instead of the camera. The team have selected this approach since it doesn't require them to find the proper LAB threshold for the color of the parking lot. The `distance()` function of the `pupdevices` module is used to determine if there is a presence of the parking lot.
 
@@ -243,7 +251,7 @@ else:
     return "Normal"
 ```
 
-### 3.3. Traffic Sign Avoidance Strategy
+### 3.2.3. Traffic Sign Avoidance Strategy
 
 The whole program for the robot involves single-instance detection of the obstacles instead of the commonly used continuous detection for this category. This means that the robot is programmed to capture the data from the camera only at specific intervals. The team have selected this approach because it is easier for them to debug in the official competition.
 
@@ -261,13 +269,13 @@ If the robot wasn't able to detect the color of the traffic sign, the robot woul
 
 Lastly, the robot is programmed to record the color and position of the traffic signs encountered of each straightforward section during its first lap. This approach ensures that there will be no false detections during its second and third lap.
 
-### 3.4. Parking Lot Strategy
+### 3.2.4. Parking Lot Strategy
 
 Similar to the traffic signs, the robot is set to record the position of the parking lot on the field during its first lap. Having a reference of the position of the parking lot, the robot is programed to follow a specific route: the robot will glide itself to the outer wall until it reaches the corner section before the straightforward section where the parking lot is positioned. The robot will then follow the route for the Green traffic sign with presence of parking lot, which is showcased in Figure 5.3 earlier. Afterwards, the robot will perform a perpendicular parking between the parking lot boundaries, marking the end of the run for the Obstacle Challenge Round. A following illustration is provided for a better visualization.
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/3.4.1.png?">
 
-### 3.5. Third Lap Continuation
+### 3.2.5. Third Lap Continuation
 
 The robot must continue to the third lap in the in the opposite direction if the last traffic sign detected is Red. In order to determine if the robot must perform the said action, the robot uses the recorded color and position of traffic signs it detected during the first lap. If ever the last detected traffic sign is Red, the robot would make its turn in the next corner section of the starting straightforward section of the robot. Here is an illustration demonstrating the route the robot will take for the third lap continuation:
 
@@ -287,9 +295,13 @@ In order to maximize the functionality of the camera and distance sensor, the ro
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/4.0.1.png?">
 
-The robot is equipped with free wheels on its sides, allowing for uninterrupted movements when it is about to encounter a wall at an angle. Normally, the robot will be stuck or interrupted when a wall is approached diagonally. However, these free wheels enable the robot to glide smoothly along the surface of the wall, perfectly aligning itself to the wall. This design minimizes the possible disruptions in movement and enables the robot to adjust its position precisely. 
+### 4.2 Side Free Wheels
+
+The robot is equipped with medium-size gears on its sides, acting as free wheels, allowing for uninterrupted movements when it is about to encounter a wall at an angle. Normally, the robot will be stuck or interrupted when a wall is approached diagonally. However, these free wheels enable the robot to glide smoothly along the surface of the wall, perfectly aligning itself to the wall. This design minimizes the possible disruptions in movement and enables the robot to adjust its position precisely. 
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/4.0.2.png?">
+
+### 4.3 Camera LEGO Chassis
 
 The OpenMV Cam H7 Plus is securely placed inside the custom-designed LEGO camera mount which was uniquely designed by the team. The mount structures integrate LEGO components, making it easy to attach the camera onto the rotating large motors. This LEGO design maintains its uniformity with the overall robot and allows for convenient attachment of additional external components, such as a color sensor placed behind the camera.
 
