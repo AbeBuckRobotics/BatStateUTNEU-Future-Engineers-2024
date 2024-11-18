@@ -180,9 +180,25 @@ In Open Challenge Rounds, the only obstacles present on the game field are its o
 
 To determine if the driving direction is clockwise or counterclockwise, the SPIKE™ Color Sensor is used. This sensor is programmed to record the color of the line the robot will first pass: if it is orange, the driving direction is clockwise; if it is blue, the driving direction is counterclockwise.
 
+```py
+# (pseudocode) robot determining the driving direction based on the line color
+
+if (lineColor == "Orange"):
+    robotDirection = "Clockwise"
+elif (lineColor == "Blue"):
+    robotDirection == "Counterclockwise"
+```
+
 ### 3.1.2. Wall Avoidance
 
 To successfully avoid touching the outer boundary wall, the robot is programmed to perform a 90° turn when it is within a specific distance from the wall. This ensures that the robot will not be near the outer wall after completing each turn. The SPIKE™ Distance Sensor is used to detect if the robot is about to collide with the outer wall. If a collision is about to occur, the robot is programmed to steer away from the wall. Additionally, the SPIKE™ Gyro Sensor is used which allows the robot to follow a specific angle, ensuring that the robot turns properly and drives straight after each turn.
+
+```py
+# (pseudocode) robot moving away from the outer wall when it is about to touch the said wall
+
+if (robot.nearOuterWall()):
+    robot.moveAway()
+```
 
 ## 3.2. Obstacle Challenge
 
@@ -281,7 +297,7 @@ Lastly, the robot is programmed to record the color and position of the traffic 
 
 ### 3.2.4. Parking Lot Strategy
 
-Similar to the traffic signs, the robot is set to record the position of the parking lot on the field during its first lap. Having a reference of the position of the parking lot, the robot is programed to follow a specific route: the robot will glide itself to the outer wall until it reaches the corner section before the straightforward section where the parking lot is positioned. The robot will then follow the route for the Green traffic sign with presence of parking lot, which is showcased in Figure 5.3 earlier. Afterwards, the robot will perform a perpendicular parking between the parking lot boundaries, marking the end of the run for the Obstacle Challenge Round. A following illustration is provided for a better visualization.
+Similar to the traffic signs, the robot is set to record the position of the parking lot on the field during its first lap. Having a reference of the position of the parking lot, the robot is programed to follow a specific route: the robot will glide itself to the outer wall until it reaches the corner section before the straightforward section where the parking lot is positioned. The robot will then follow the route for the Green traffic sign with presence of parking lot, which is showcased in Figure 3.4 earlier. Afterwards, the robot will perform a perpendicular parking between the parking lot boundaries, marking the end of the run for the Obstacle Challenge Round. A following illustration is provided for a better visualization.
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/3.4.1.png?">
 
