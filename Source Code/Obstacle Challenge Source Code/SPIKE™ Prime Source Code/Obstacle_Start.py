@@ -52,52 +52,30 @@ def obstacleStart():
             monke.streetStall(650, 0, 2000, 2000, 100)
 
     else:
-        trafficSign = RECORDTRAFFICSIGN(None, [], "")
-
         cameraCall = camera.call('blob')
 
-        gPix = cameraCall[2]
-        rPix = cameraCall[5]
         trafficSign = []
 
-        if (gPix > rPix):
-            trafficSign = ["Green", cameraCall[0]]
-        elif (rPix > gPix):
-            trafficSign = ["Red", cameraCall[3]]
-        else:
-            trafficSign = ["None", 0]
+        try:
+            gPix = cameraCall[2]
+            rPix = cameraCall[5]
+
+            if (gPix > rPix):
+                trafficSign = ["Green", cameraCall[0]]
+            elif (rPix > gPix):
+                trafficSign = ["Red", cameraCall[3]]
+            else:
+                trafficSign = ["None", 0]
+
+        except:
+            trafficSign = ["Error", -1]
 
         print(f"{trafficSign[0]} x={trafficSign[1]}", end = " ")
 
         if (trafficSign[0] == "Green"):
             # GREEN
 
-            if (trafficSign[1] > 150):
-                # GREEN RIGHT
-
-                monke.fastAcceleration(False)
-                monke.street(150, 0, 2000, 2000)
-                monke.fastAcceleration(True)
-                monke.street(400, -20, 800, 2000)
-                monke.turn(1, 0, 40, 2000, 2000)
-
-                _robotDirection = monke.streetDetermineTheLine(200, 0, 2000, 2000)
-
-                if (_robotDirection == 1):
-                    # GREEN RIGHT CLOCKWISE
-
-                    monke.look(RIGHT, False)
-                    monke.streetStall(500, 0, 2000, 2000, 100)
-
-                else:
-                    # GREEN RIGHT COUNTERCLOCKWISE
-
-                    monke.turn(1, 32, 40, 2000, 2000)
-                    monke.look(LEFT, False)
-                    monke.turn(1, 0, 40, 2000, 2000)
-                    monke.streetStall(120, 0, 2000, 2000, 100)
-
-            else:
+            if (trafficSign[1] < 150):
                 # GREEN LEFT
 
                 monke.fastAcceleration(False)
@@ -133,37 +111,35 @@ def obstacleStart():
                     monke.look(LEFT, False)
                     monke.streetStall(400, 0, 2000, 2000, 100)
 
-        else:
-            # RED
-
-            if (trafficSign[1] < 150):
-                # RED LEFT
+            else:
+                # GREEN RIGHT
 
                 monke.fastAcceleration(False)
                 monke.street(150, 0, 2000, 2000)
                 monke.fastAcceleration(True)
-                monke.street(400, 20, 800, 7000)
+                monke.street(400, -20, 800, 2000)
                 monke.turn(1, 0, 40, 2000, 2000)
+
                 _robotDirection = monke.streetDetermineTheLine(200, 0, 2000, 2000)
 
                 if (_robotDirection == 1):
-                    # RED LEFT CLOCKWISE
+                    # GREEN RIGHT CLOCKWISE
 
-                    monke.turn(1, -45, 40, 2000, 2000)
-                    monke.street(100, -45, 2000, 2000)
                     monke.look(RIGHT, False)
-                    monke.turn(1, 0, 40, 2000, 800)
-                    monke.streetStall(1, 0, 2000, 2000, 100)
-                    
-                else: 
-                    # RED LEFT COUNTERCLOCKWISE
+                    monke.streetStall(500, 0, 2000, 2000, 100)
 
-                    monke.turn(1, -33, 40, 2000, 2000)
+                else:
+                    # GREEN RIGHT COUNTERCLOCKWISE
+
+                    monke.turn(1, 32, 40, 2000, 2000)
                     monke.look(LEFT, False)
                     monke.turn(1, 0, 40, 2000, 2000)
-                    monke.streetStall(10, 0, 2000, 2000, 100)
+                    monke.streetStall(120, 0, 2000, 2000, 100)
 
-            else:
+        else:
+            # RED
+
+            if (trafficSign[1] > 150):
                 # RED RIGHT
 
                 monke.fastAcceleration(False)
@@ -190,7 +166,7 @@ def obstacleStart():
                     monke.turn(1, -50, 40, 2000, 2000)
                     monke.street(100, -50, 2000, 2000)
                     monke.look(LEFT, False)
-                    monke.streetStall(520, 0, 2000, 2000, 100)
+                    monke.streetStall(450, 0, 2000, 2000, 100)
 
                 else:
                     # RED RIGHT CLOCKWISE
@@ -200,6 +176,34 @@ def obstacleStart():
                     monke.look(RIGHT, False)
                     monke.streetStall(400, 0, 2000, 2000, 100)
 
+            else:
+                # RED LEFT
+
+                monke.fastAcceleration(False)
+                monke.street(150, 0, 2000, 2000)
+                monke.fastAcceleration(True)
+                monke.street(400, 20, 800, 7000)
+                monke.turn(1, 0, 40, 2000, 2000)
+                _robotDirection = monke.streetDetermineTheLine(200, 0, 2000, 2000)
+
+                if (_robotDirection == 1):
+                    # RED LEFT CLOCKWISE
+
+                    monke.turn(1, -45, 40, 2000, 2000)
+                    monke.street(100, -45, 2000, 2000)
+                    monke.look(RIGHT, False)
+                    monke.turn(1, 0, 40, 2000, 800)
+                    monke.streetStall(1, 0, 2000, 2000, 100)
+                    
+                else: 
+                    # RED LEFT COUNTERCLOCKWISE
+
+                    monke.turn(1, -33, 40, 2000, 2000)
+                    monke.look(LEFT, False)
+                    monke.turn(1, 0, 40, 2000, 2000)
+                    monke.streetStall(10, 0, 2000, 2000, 100)
+
+    print("\n")
     monke.motorClose()
 
     return _robotDirection
