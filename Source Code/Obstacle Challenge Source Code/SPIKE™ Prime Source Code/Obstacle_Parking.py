@@ -36,19 +36,18 @@ def obstacleParking(robotDirection, recordListInput):
                 i += 1
 
                 while ("Parking" not in recordListInput[i]):
-                    monke.driveLine(1200, 2000, 2000, -12, -3)
+                    monke.driveLine(1000, 2000, 2000, -12, -3)
                     monke.turn(1, headingTarget + 80, 40, 2000, 2000)
                     monke.streetLine(1, headingTarget + 80, 2000, 2000)
                     monke.street(550, headingTarget + 80, 2000, 2000)
-                    monke.turn(1, headingTarget + 88, 40, 2000, 2000)
+                    monke.turnSemi(1, headingTarget + 88, headingTarget + 90, 40, 2000, 2000)
 
                     i = (i + 1) % 4
                     headingTarget += 90
 
-                monke.drive(1100, 2000, 2000, -12, -3)
-                monke.street(700, headingTarget + 40, 2000, 2000)
-                monke.look(RIGHT, False)
-                monke.streetStall(400, headingTarget, 800, 700, 100)
+                monke.driveLine(1000, 2000, 2000, -12, -3)
+                monke.turn(1, headingTarget + 40, 40, 2000, 2000)
+                monke.streetStall(100, headingTarget, 900, 800, 100)
 
             monke.driveMotor.control.limits(acceleration= 800)
             monke.street(-20, 0, 2000, 2000)
@@ -58,9 +57,9 @@ def obstacleParking(robotDirection, recordListInput):
             monke.HOLD(100)
 
             monke.fastAcceleration(False)
-            monke.street(150, -90, 2000, 2000)
+            monke.street(100, -90, 2000, 2000)
             monke.fastAcceleration(True)
-            monke.streetStall(100, -90, 2000, 2000, 100)
+            monke.streetStall(50, -90, 2000, 800, 100)
 
             monke.driveMotor.control.limits(acceleration= 800)
             monke.street(-100, 0, 2000, 2000)
@@ -72,11 +71,11 @@ def obstacleParking(robotDirection, recordListInput):
 
             elif (recordListInput[i][2] == "Parking"):
                 # fParking
-                monke.street(-1630, -1, 2000, 2000)
+                monke.street(-1610, -1, 2000, 2000)
 
             monke.street(-100, 0, 900, 800)
             monke.turn(-1, -92, 40, 800, 550)
-            monke.streetStall(-120, -90, 700, 900, 100)
+            monke.streetStall(-120, -90, 700, 900, 500)
 
 
 
@@ -94,7 +93,7 @@ def obstacleParking(robotDirection, recordListInput):
                     monke.turn(1, headingTarget - 80, 40, 2000, 2000)
                     monke.streetLine(1, headingTarget - 80, 2000, 2000)
                     monke.street(550, headingTarget - 80, 2000, 2000)
-                    monke.turn(1, headingTarget - 88, 40, 2000, 2000)
+                    monke.turnSemi(1, headingTarget - 88, headingTarget - 90, 40, 2000, 2000)
 
                     i = (i + 1) % 4
                     headingTarget -= 90
@@ -114,7 +113,7 @@ def obstacleParking(robotDirection, recordListInput):
             monke.fastAcceleration(False)
             monke.street(150, 90, 2000, 2000)
             monke.fastAcceleration(True)
-            monke.streetStall(220, 90, 2000, 2000, 100)
+            monke.streetStall(220, 90, 2000, 800, 100)
 
             monke.driveMotor.control.limits(acceleration= 800)
             monke.street(-100, 0, 2000, 2000)
@@ -122,13 +121,14 @@ def obstacleParking(robotDirection, recordListInput):
 
             if (recordListInput[i][0] == "Parking"):
                 # nParking
-                monke.street(-720, -1, 2000, 2000)
+                monke.street(-650, -1, 2000, 2000)
 
             elif (recordListInput[i][2] == "Parking"):
                 # fParking
-                monke.street(-1650, -1, 2000, 2000)
+                monke.street(-1550, -1, 2000, 2000)
 
-            monke.turnStall(-1, 89, 90, 40, 2000, 2000, 200)
+            monke.street(-100, 0, 900, 800)
+            monke.turnStall(-1, 89, 90, 40, 800, 700, 500)
 
     finally:
         distanceSensor.lights.on(100)
@@ -139,10 +139,10 @@ if __name__ == "__main__":
     print(f"\n\n\nVoltage: {hub.battery.voltage()}")
     hub.speaker.beep(500)
 
-    recordListMain = [["", "---", "", "---"],   # Start
-                      ["", "---", "Parking", "---"], 
-                      ["", "---", "", "---"], 
-                      ["", "---", "", "---"]]
+    recordListMain = [["",  "---",      "Parking", "---"],   # Start
+                      ["",  "---",      "", "---"], 
+                      ["",  "---",      "", "---"], 
+                      ["",  "---",      "", "---"]]
 
     obstacleParking(1, recordListMain)
     print(clock.time())
