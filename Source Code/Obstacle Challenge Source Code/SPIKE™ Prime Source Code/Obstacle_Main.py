@@ -6,20 +6,40 @@ from Obstacle_Parking import obstacleParking
 from pybricks.tools import wait, StopWatch
 
 _clock = StopWatch()
-_robotLaps, _recordListMain = 0, [[None for y in range(4)] for x in range(4)]
+_robotLapsTarget, _robotLaps, _recordListMain = 8, 0, [[None for y in range(4)] for x in range(4)]
 
 _clock.reset()
 _robotDirection = obstacleStart()
 _timeStart = _clock.time()
+_clock.reset()
 
-while (_robotLaps < 12):
+while (_robotLaps < _robotLapsTarget - 4):
     _robotLaps += 1
-
-    print(f"Laps: {_robotLaps / 4}")
+    print(f"\nLaps: {_robotLaps / 4}")
 
     _recordListMain[_robotLaps % 4] = obstacleClockwise(_recordListMain[_robotLaps % 4], _robotLaps) if (_robotDirection == 1) else obstacleCounter(_recordListMain[_robotLaps % 4], _robotLaps)
     # _recordListMain = [[None for y in range(4)] for x in range(4)]
 
-obstacleParking(_robotDirection, _recordListMain)
+_robotUTurn, _recordListMain = obstacleUTurn(_robotDirection, _recordListMain)
 
-print(f"\nFINAL TIME: {_clock.time()}")
+if (_robotUTurn == True):
+    _robotDirection *= -1
+    _robotLaps -= 1
+
+while (_robotLaps < _robotLapsTarget):
+    _robotLaps += 1
+    print(f"Laps: {_robotLaps / 4}")
+
+    if (_robotDirection == 1):
+        obstacleClockwise(_recordListMain[_robotLaps % 4], _robotLaps)
+    else:
+        obstacleCounter(_recordListMain[_robotLaps % 4], _robotLaps)
+
+_timeLoop = _clock.time()
+_clock.reset()
+
+obstacleParking(_robotDirection, _recordListMain)
+_timeParking = _clock.time()
+
+print(f"\n\nStart: {_timeStart}\tLoop: {_timeLoop}\tParking: {_timeParking}")
+print(f"\nFINAL TIME: {_timeStart + _timeLoop + _timeParking}")
