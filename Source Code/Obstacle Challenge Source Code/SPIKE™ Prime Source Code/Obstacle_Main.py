@@ -6,7 +6,7 @@ from Obstacle_Parking import obstacleParking
 from pybricks.tools import wait, StopWatch
 
 _clock = StopWatch()
-_robotLapsTarget, _robotLaps, _recordListMain = 8, 0, [[None for y in range(4)] for x in range(4)]
+_robotLapsTarget, _robotLaps, _recordListMain = 12, 0, [[None for y in range(4)] for x in range(4)]
 
 _clock.reset()
 _robotDirection = obstacleStart()
