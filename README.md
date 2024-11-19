@@ -172,7 +172,7 @@ Both the SPIKEâ„¢ Distance Sensor and OpenMV Cam H7 Plus are mounted to a SPIKEâ
 
 In order to detect and negotiate with the present obstacles on the field, a specific strategy must be well-planned to possibly complete three (3) laps in both Open and Obstacle Challenge Rounds. The team had spent a fair amount of time considering different thoughts and ideas to efficiently manage these obstacles; always giving space for new yet excellent ideas to be added in the team's strategy.
 
-## 3.1. Open Challenge
+## 3.1. Open Challenge Strategy
 
 In Open Challenge Rounds, the only obstacles present on the game field are its outer boundary wall and the randomly placed inner wall. The robot must not touch the outer wall and must not move the inner wall to successfully finish the three laps requirement.
 
@@ -200,7 +200,7 @@ if (robot.nearOuterWall()):
     robot.moveAway()
 ```
 
-## 3.2. Obstacle Challenge
+## 3.2. Obstacle Challenge Strategy
 
 In Obstacle Challenge Rounds, the number of obstacles on the game field increases significantly. In addition to the outer boundary wall and the randomly placed inner wall, there are up to seven (7) traffic signs and two (2) parking lot boundaries, all which are randomly positioned on the game field. The traffic signs are also random in color; they may be green or red. The robot must pass a green traffic sign to the left and a red traffic sign to the right, and the robot must park between the parking lot boundaries after finishing three laps. Lastly, the robot must not touch any of the traffic signs and parking lot boundaries.
 
@@ -354,7 +354,7 @@ The robot has come a long way since its development, yet there are still areas w
 
 ### 5.3. Obstacle Management Recommendations
 
-- Consider an obstacle management with continuous detection of the obstacle rather than a single-instance detection which causes a lot of movements. In addition to that, try to apply various detection methods beyond simple pixel-based such as object tracking, which is the recognition and tracking of items along through an image processing application. This offers the advantage of consistently following a target unlike simple pixel-based methods.
+- Consider an obstacle challenge strategy with continuous detection of the traffic signs rather than a single-instance detection which causes a lot of movements. In addition to that, try to apply various detection methods beyond simple pixel-based such as object tracking, which is the recognition and tracking of items along through an image processing application. This offers the advantage of consistently following a target unlike simple pixel-based methods.
 
 ***
 
