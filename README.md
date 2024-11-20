@@ -164,7 +164,7 @@ The team selected the OpenMV Cam H7 Plus to specifically detect traffic signs an
 
 ### 2.2.5. Additional Information
 
-Both the SPIKE™ Distance Sensor and OpenMV Cam H7 Plus are mounted to a SPIKE™ Large Motor. For more information, visit [Rotating Camera & Distance Sensor](#41-rotating-camera--distance-sensor)
+Both the SPIKE™ Distance Sensor and OpenMV Cam H7 Plus are mounted to a SPIKE™ Large Motor. For more information, visit [<i>4.1. Rotating Camera & Distance Sensor</i>](#41-rotating-camera--distance-sensor) in [<i>Chapter 4: Engineering Factor</i>](#4-engineering-factor).
 
 ***
 
@@ -405,5 +405,5 @@ The robot has come a long way since its development, yet there are still areas w
 
 ### 6.3. Final Step
 
-The team strongly encourages everyone to enhance their program and robot build as true engineering involves not only creating solutions but also sharing ideas with others to drive innovation forward. You may refer to the team's [Recommendations](#5-recommendations) for their insights on how you can improve their work. By building upon each other's work, we can collectively advance the project to new levels, allowing it to evolve and reach its full potential through teamwork.
+The team strongly encourages everyone to enhance their program and robot build as true engineering involves not only creating solutions but also sharing ideas with others to drive innovation forward. You may refer to the team's [<i>Chapter 5: Recommendations</i>](#5-recommendations) for their insights on how you can improve their work. By building upon each other's work, we can collectively advance the project to new levels, allowing it to evolve and reach its full potential through teamwork.
 
