@@ -9,7 +9,7 @@ This directory contains multiple photos of the vehicle previous versions of buil
 ***
 
 ## Version 3
-
+This is the latest version of the robot and it will be utilized in the International Competition.
 
 | v3.1 (Internationals) - October 31, 2024 |
 | ----------------------------------- |
@@ -23,7 +23,7 @@ These following versions of the robot have a complete set of sensors. With these
 |<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/History%20of%20Vehicle%20Design/Vehicle%20v2.3.jpg?" width = "500">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/History%20of%20Vehicle%20Design/Vehicle%20v2.2.png?" width = "500">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/History%20of%20Vehicle%20Design/Vehicle%20v2.1.jpg?" width = "500">|
 
 ## Version 1
-The first versions of the robot doesn't have a camera as the team's school doesn't have one at the time. With the lack of camera, these robots were only programmed to finish the Open Challenge.
+The first versions of the robot doesn't have a camera as the team's school doesn't have one at the time. With the lack of camera, these versions of the robot were only programmed to finish the Open Challenge.
 
 | v1.3 - June 27, 2024                | v1.2 - June 06, 2024            | v1.1 - June 03, 2024            |
 | ----------------------------------- | ------------------------------- | ------------------------------- |
