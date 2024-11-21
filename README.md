@@ -364,7 +364,7 @@ The robot has come a long way since its development, yet there are still areas w
 
 ## 6.1. Robot Construction Guide
 
-1. Prepare these necessary kits and equipments; you may refer to the [Bills of Materials](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Bills%20of%20Materials/README.md):
+1. Prepare these necessary robotics sets and camera for the build of the robot; you may refer to the [Bills of Materials](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/List%20of%20Materials/Bills_of_Materials.png):
     - [LEGO® Education SPIKE™ Prime Set](https://education.lego.com/en-us/products/lego-education-spike-prime-set/45678/)
     - [LEGO® Education SPIKE™ Prime Expansion Set](https://education.lego.com/en-us/products/lego-education-spike-prime-expansion-set/45681/)
     - [LEGO® MINDSTORMS® Education EV3 Core Set](https://education.lego.com/en-us/products/lego-mindstorms-education-ev3-core-set/5003400/)
