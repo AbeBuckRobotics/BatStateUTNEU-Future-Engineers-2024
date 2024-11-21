@@ -364,16 +364,18 @@ The robot has come a long way since its development, yet there are still areas w
 
 ## 6.1. Robot Construction Guide
 
-1. Prepare these necessary robotics sets and camera for the build of the robot; you may refer to the [Bills of Materials](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/List%20of%20Materials/Bills_of_Materials.png):
+1. Prepare these necessary robotics sets and camera for the build of the robot. You may refer to the [<i>Bills of Materials</i>](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/List%20of%20Materials/Bills_of_Materials.png) for the amount and total cost:
     - [LEGO® Education SPIKE™ Prime Set](https://education.lego.com/en-us/products/lego-education-spike-prime-set/45678/)
     - [LEGO® Education SPIKE™ Prime Expansion Set](https://education.lego.com/en-us/products/lego-education-spike-prime-expansion-set/45681/)
     - [LEGO® MINDSTORMS® Education EV3 Core Set](https://education.lego.com/en-us/products/lego-mindstorms-education-ev3-core-set/5003400/)
     - [LEGO® MINDSTORMS® Education EV3 Expansion Set](https://sasbadilearning.com/product/mindstorms-education-ev3-expansion-set/)
     - [OpenMV Cam H7 Plus](https://openmv.io/products/openmv-cam-h7-plus)
   
-2. Build the robot. You may refer to the [Building Instructions](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Vehicle%20Building%20Instructions) of the team's robot to have a starting idea.
+2. Prepare the specific parts that will be included in the robot. You may refer to the [<i>Table of Materials</i>](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/List%20of%20Materials/Table%20of%20Materials) for the exact quantity of parts that the robot will consist.
+  
+3. Build the robot. You may refer to the [<i>Building Instructions</i>](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Vehicle%20Building%20Instructions) of the team's robot to have a starting idea.
 
-3. Finally, ensure that every electrical components are wired properly according to the [Pictorial Diagram](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Wiring%20Diagram/Robot%20Pictorial%20Diagram.png?) of the team's robot.
+4. Finally, ensure that every electrical components are wired properly according to the [<i>Pictorial Diagram</i>](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Wiring%20Diagram/Robot%20Pictorial%20Diagram.png?) of the team's robot.
 
 ## 6.2. Program Construction Guide
 
