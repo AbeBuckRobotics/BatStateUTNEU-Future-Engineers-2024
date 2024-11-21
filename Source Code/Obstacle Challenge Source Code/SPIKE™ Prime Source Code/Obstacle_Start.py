@@ -15,8 +15,15 @@ def obstacleStart():
     monke.HOLD()
     clock.reset()
     
-    while (clock.time() < 500):
-        steerMotor.run_target(1000, 0, Stop.HOLD, False)
+    steerMotor.run_target(1000, 0, Stop.HOLD, False)
+
+    while (clock.time() < 400):
+        monke.look(-90, False)
+
+    while (clock.time() < 800):
+        monke.look(90, False)
+
+    while (clock.time() < 1200):
         monke.look(0, False)
 
     hub.speaker.beep(500, 100)
@@ -30,7 +37,7 @@ def obstacleStart():
         if (distanceSensor.distance() < _distanceMin):
             _distanceMin = distanceSensor.distance()
 
-    print(f"FINAL: {_distanceMin}")
+    print(f"Front: {_distanceMin}", end = " ")
 
     if (970 < _distanceMin and _distanceMin < 1200):
         print("Laps: 0\t\t\b\b\b\b\bfStart")
@@ -87,9 +94,9 @@ def obstacleStart():
 
                 if (linePresence == "Line"):
                     _robotDirection = -1
-                    monke.street(200, 0, 2000, 2000)
+                    monke.street(300, 0, 2000, 2000)
                 else:
-                    linePresence = monke.streetDetermineIfLine(200, 0, 2000, 2000)
+                    linePresence = monke.streetDetermineIfLine(300, 0, 2000, 2000)
 
                     if (linePresence == "Line"):
                         _robotDirection = -1
@@ -101,15 +108,15 @@ def obstacleStart():
 
                     monke.turn(1, 42, 40, 2000, 2000)
                     monke.look(RIGHT, False)
-                    monke.streetStall(500, 0, 2000, 2000, 100)
+                    monke.streetStall(300, 0, 2000, 2000, 100)
 
                 else:
                     # GREEN LEFT COUNTERCLOCKWISE
 
-                    monke.turn(1, 42, 40, 2000, 2000)
-                    monke.street(300, 42, 2000, 2000)
+                    monke.turn(1, 45, 40, 2000, 2000)
+                    monke.street(156, 45, 2000, 2000)
                     monke.look(LEFT, False)
-                    monke.streetStall(400, 0, 2000, 2000, 100)
+                    monke.streetStall(300, 0, 2000, 2000, 100)
 
             else:
                 # GREEN RIGHT
@@ -151,9 +158,9 @@ def obstacleStart():
 
                 if (linePresence == "Line"):
                     _robotDirection = 1
-                    monke.street(200, 0, 2000, 2000)
+                    monke.street(300, 0, 2000, 2000)
                 else:
-                    linePresence = monke.streetDetermineIfLine(200, 0, 2000, 2000)
+                    linePresence = monke.streetDetermineIfLine(300, 0, 2000, 2000)
 
                     if (linePresence == "Line"):
                         _robotDirection = 1
@@ -174,7 +181,7 @@ def obstacleStart():
                     monke.turn(1, -50, 40, 2000, 2000)
                     monke.street(350, -50, 2000, 2000)
                     monke.look(RIGHT, False)
-                    monke.streetStall(400, 0, 2000, 2000, 100)
+                    monke.streetStall(250, 0, 2000, 2000, 100)
 
             else:
                 # RED LEFT
@@ -198,14 +205,17 @@ def obstacleStart():
                 else: 
                     # RED LEFT COUNTERCLOCKWISE
 
-                    monke.turn(1, -33, 40, 2000, 2000)
+                    monke.turn(1, -40, 40, 2000, 2000)
                     monke.look(LEFT, False)
-                    monke.turn(1, 0, 40, 2000, 2000)
-                    monke.streetStall(10, 0, 2000, 2000, 100)
+                    monke.streetStall(200, 0, 2000, 2000, 100)
 
-    print("\n")
     monke.motorClose()
 
+    if (_robotDirection == 1):
+        print("CLOCKWISE")
+    else:
+        print("COUNTERCLOCKWISE")
+        
     return _robotDirection
 
 if __name__ == "__main__":
@@ -216,3 +226,11 @@ if __name__ == "__main__":
         obstacleStart()
     finally:
         print(f"\nTime: {clock.time()}")
+
+        wait(1000)
+
+        v = Motor(Port.F, Direction.CLOCKWISE, [1], False, 5)
+        s = Motor(Port.B, Direction.COUNTERCLOCKWISE, [1], False, 5)
+        v.run_target(1000, 0, Stop.HOLD, False)
+        s.run_target(1000, 0, Stop.HOLD, False)
+        wait(800)
