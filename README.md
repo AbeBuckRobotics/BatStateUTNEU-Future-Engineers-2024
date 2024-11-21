@@ -393,7 +393,7 @@ The robot has come a long way since its development, yet there are still areas w
 
 1. Prepare [Pybricks Code](https://code.pybricks.com/) which is necessary for the compilation of the program to the robot's microcontroller.
 
-2. You need to first install the Pybricks firmware on your SPIKE™ Large Hub. You may follow the instructions from Pybricks' official website here: [Installing Pybricks On The Hub](https://pybricks.com/learn/getting-started/install-pybricks/#installing-pybricks-on-the-hub)
+2. You need to first install the Pybricks firmware on your SPIKE™ Large Hub. You may follow the instructions from Pybricks' official website here: [Installing Pybricks On The Hub](https://pybricks.com/learn/getting-started/install-pybricks/#installing-pybricks-on-the-hub).
 
 3. To begin programming, you are first recommended to read the [Pybricks Documentation](https://code.pybricks.com/static/docs/v2.19.0/index.html) to understand how the robot can move and sense its surroundings. You may follow the instructions from Pybrick's official website here: [Creating Your First Program](https://pybricks.com/learn/getting-started/pybricks-environment/). The team have provided their programs which can be found here: [`SPIKE™ Prime Source Codes`](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Source%20Code/Obstacle%20Challenge%20Source%20Code/SPIKE%E2%84%A2%20Prime%20Source%20Code).
 
@@ -403,7 +403,7 @@ The robot has come a long way since its development, yet there are still areas w
 
 6. To upload the program to the hub, Pybricks automatically downloads the program you ran to the hub. This means that whenever you run the program to the hub, it is also saved there at the same time.
 
-### 6.3. Final Step
+## 6.3. Final Step
 
 The team strongly encourages everyone to enhance their program and robot build as true engineering involves not only creating solutions but also sharing ideas with others to drive innovation forward. You may refer to the team's [<i>Chapter 5: Recommendations</i>](#5-recommendations) for their insights on how you can improve their work. By building upon each other's work, we can collectively advance the project to new levels, allowing it to evolve and reach its full potential through teamwork.
 
