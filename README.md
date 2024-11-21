@@ -23,9 +23,9 @@ Meet the members of the BSU Spartan Team, each bringing unique skills and dedica
 
 ## List of Directories
 
-* [`Bills of Materials`](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Bills%20of%20Materials) contains the list of all the materials necessary to build the robot.
 * [`Discussion Images`](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Discussion%20Images) contains all the images that is showcased in this README.md file.
-* [`History of Vehicle Design`](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/History%20of%20Vehicle%20Design) contains the previous versions of the vehicle build.
+* [`History of Vehicle Design`](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/History%20of%20Vehicle%20Design) contains the previous versions of the vehicle
+* [`List of Materials`](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/List%20of%20Materials) contains the list of all the materials necessary to build the robot.
 * [`Source Code`](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Source%20Code) contains the main and other programs of the robot.
 * [`Team Photos`](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Team%20Photos) contains multiple photos of the whole team.
 * [`Vehicle Building Instructions`](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Vehicle%20Building%20Instructions) contains the step by step instructions to contruct the robot.
