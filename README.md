@@ -335,7 +335,7 @@ The OpenMV Cam H7 Plus is securely placed inside the custom-designed LEGO camera
 
 ***
 
-## 5. Recommendations
+# 5. Recommendations
 
 The robot has come a long way since its development, yet there are still areas where it can be refined and optimized. The team first assessed the limitations of the robot to identify possible recommendations that should address these current limitations and anticipate future challenges. These recommendations aim to enhance the overall performance, reliability, and functionality of the robot.
 
@@ -358,9 +358,9 @@ The robot has come a long way since its development, yet there are still areas w
 
 ***
 
-## 6. Construction Guide
+# 6. Construction Guide
 
-### 6.1. Robot Construction Guide
+## 6.1. Robot Construction Guide
 
 1. Prepare these necessary kits and equipments; you may refer to the [Bills of Materials](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Bills%20of%20Materials/README.md):
     - [LEGO® Education SPIKE™ Prime Set](https://education.lego.com/en-us/products/lego-education-spike-prime-set/45678/)
@@ -373,9 +373,9 @@ The robot has come a long way since its development, yet there are still areas w
 
 3. Finally, ensure that every electrical components are wired properly according to the [Pictorial Diagram](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Wiring%20Diagram/Robot%20Pictorial%20Diagram.png?) of the team's robot.
 
-### 6.2. Program Construction Guide
+## 6.2. Program Construction Guide
 
-#### Camera Program Guide
+### Camera Program Guide
 
 1. Prepare [OpenMV IDE](https://openmv.io/pages/download) which is necessary for the compilation of the program to the robot's camera.
 
@@ -389,7 +389,7 @@ The robot has come a long way since its development, yet there are still areas w
 
 6. To upload the program to the camera, proceed to the top-left of the OpenMV IDE. Click `Tools` then `Save open script to OpenMV Cam (as main.py)`.
 
-#### SPIKE™ Prime Program Guide
+### SPIKE™ Prime Program Guide
 
 1. Prepare [Pybricks Code](https://code.pybricks.com/) which is necessary for the compilation of the program to the robot's microcontroller.
 
