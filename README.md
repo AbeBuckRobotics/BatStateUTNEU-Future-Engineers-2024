@@ -393,19 +393,23 @@ The robot has come a long way since its development, yet there are still areas w
 
 6. To upload the program to the camera, proceed to the top-left of the OpenMV IDE. Click `Tools` then `Save open script to OpenMV Cam (as main.py)`.
 
+7. The whole program of the team for the camera and its necessary libraries are compiled here: [<i>Obstacle Challenge Camera Source Code</i>](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Source%20Code/Obstacle%20Challenge%20Source%20Code/Camera%20Source%20Code). 
+
 ### SPIKE™ Prime Program Guide
 
 1. Prepare [Pybricks Code](https://code.pybricks.com/) which is necessary for the compilation of the program to the robot's microcontroller.
 
 2. You need to first install the Pybricks firmware on your SPIKE™ Large Hub. You may follow the instructions from Pybricks' official website here: [Installing Pybricks On The Hub](https://pybricks.com/learn/getting-started/install-pybricks/#installing-pybricks-on-the-hub).
 
-3. To begin programming, you are first recommended to read the [Pybricks Documentation](https://code.pybricks.com/static/docs/v2.19.0/index.html) to understand how the robot can move and sense its surroundings. You may follow the instructions from Pybrick's official website here: [Creating Your First Program](https://pybricks.com/learn/getting-started/pybricks-environment/). The team have provided their programs which can be found here: [`SPIKE™ Prime Source Codes`](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Source%20Code/Obstacle%20Challenge%20Source%20Code/SPIKE%E2%84%A2%20Prime%20Source%20Code).
+3. To begin programming, you are first recommended to read the [Pybricks Documentation](https://code.pybricks.com/static/docs/v2.19.0/index.html) to understand how the robot can move and sense its surroundings. You may follow the instructions from Pybrick's official website here: [Creating Your First Program](https://pybricks.com/learn/getting-started/pybricks-environment/).
+   
+5. Connect the hub to the computer with Bluetooth. Click the `Bluetooth` icon on the top-right, choose which hub you plan to connect, then click `Pair`. 
 
-4. Connect the hub to the computer with Bluetooth. Click the `Bluetooth` icon on the top-right, choose which hub you plan to connect, then click `Pair`. 
+6. To run the program to the hub, click the `Run this program` button or press `F5`. To stop the program, click the `Stop everything` button or press `F6`.
 
-5. To run the program to the hub, click the `Run this program` button or press `F5`. To stop the program, click the `Stop everything` button or press `F6`.
+7. To upload the program to the hub, Pybricks automatically downloads the program you ran to the hub. This means that whenever you run the program to the hub, it is also saved there at the same time.
 
-6. To upload the program to the hub, Pybricks automatically downloads the program you ran to the hub. This means that whenever you run the program to the hub, it is also saved there at the same time.
+8. The whole program of the team for the Open Challenge is provided in [<i>Open Challenge Source Code</i>](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Source%20Code/Open%20Challenge%20Source%20Code). For the Obstacle Challenge, it is provided here [<i>Obstacle Challenge SPIKE™ Prime Source Code</i>](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Source%20Code/Obstacle%20Challenge%20Source%20Code/SPIKE%E2%84%A2%20Prime%20Source%20Code).
 
 ## 6.3. Final Step
 
