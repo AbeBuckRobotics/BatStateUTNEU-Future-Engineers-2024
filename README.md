@@ -39,8 +39,29 @@ Meet the members of the BSU Spartan Team, each bringing unique skills and dedica
 * [Introduction](#introduction)
 * [Robot Specifications](#robot-specifications)
 * [1. Mobility Management](#1-mobility-management)
+  * [1.1. Motor Selection](#11-motor-selection)
+  * [1.2. Robot Driving Mechanism](#12-robot-driving-mechanism)
+  * [1.3. Robot Design](#13-robot-design)
 * [2. Power and Sense Management](#2-power-and-sense-management)
+  * [2.1. Power Management](#21-power-management)
+    * [2.1.1. SPIKE™ Large Hub](#211-spike-large-hub)
+    * [2.1.2 SPIKE™ Large Hub Rechargeable Battery](#212-spike-large-hub-rechargeable-battery)
+  * [2.2. Sense Management](#22-sense-management)
+    * [2.2.1. SPIKE™ Color Sensor](#221-spike-color-sensor)
+    * [2.2.2. SPIKE™ Distance Sensor](#222-spike-distance-sensor)
+    * [2.2.3. SPIKE™ Gyro Sensor](#223-spike-gyro-sensor)
+    * [2.2.4. OpenMV Cam H7 Plus](#224-openmv-cam-h7-plus)
+    * [2.2.5. Additional Information](#225-additional-information)
 * [3. Obstacle Management](#3-obstacle-management)
+  * [3.1. Open Challenge Strategy](#31-open-challenge-strategy)
+    * [3.1.1. Determine Driving Direction](#311-determine-driving-direction)
+    * [3.1.2. Wall Avoidance](#312-wall-avoidance)
+  * [3.2. Obstacle Challenge Strategy](#32-obstacle-challenge-strategy)
+    * [3.2.1. Traffic Sign Detection](#321-traffic-sign-detection)
+    * [3.2.2. Parking Lot Detection](#322-parking-lot-detection)
+    * [3.2.3. Traffic Sign Avoidance Strategy](323-traffic-sign-avoidance-strategy)
+    * [3.2.4. Parking Lot Strategy](324-parking-lot-strategy)
+    * [3.2.5. Third Lap Continuation](324-third-lap-continuation)
 * [4. Engineering Factor](#4-engineering-factor)
 * [5. Recommendations](#5-recommendations)
 * [6. Construction Guide](#6-construction-guide)
@@ -348,7 +369,7 @@ The robot has come a long way since its development, yet there are still areas w
 - Try other types of steering geometry, particularly the [Ackerman steering mechanism](https://en.wikipedia.org/wiki/Ackermann_steering_geometry) which allows a car to turn while avoiding tire slip. Though it is not that easy to implement, it should allow smoother and sharper turns if incorporated correctly, allowing the robot for a wider range of movements.
 - Test the capability of [all-wheel drive (AWD) transmission](https://en.wikipedia.org/wiki/All-wheel_drive_vehicle) which may improve the speed, acceleration, and stability of the robot. This is due to the fact that it distributes power across all four wheels, reducing the chance of wheels losing traction at high acceleration. However, it should be taken into consideration that AWD systems typically consume more weight than RWD, which can reduce the maximum speed of the robot. 
 
-### 5.2. Power and Sense Management Rcommendations
+### 5.2. Power and Sense Management Recommendations
 
 - Switch to other microcontrollers such as [Arduino Uno](https://docs.arduino.cc/hardware/uno-rev3/) or [Raspberry Pi](https://www.raspberrypi.com/). These microcontrollers are able to handle more motors and sensors, and control a wide variety of electrical components, in comparison to the team's current SPIKE™ Large Hub, it can only control a maximum of six (6) selected motors and sensors. Therefore it is better if there is an additional port that can attach an additional motor for driving to maximize the speed of the robot and more sensors can be attached to make the robot more reliable.
 - Explore a better suited camera like [Raspberry Pi Camera Module 2](https://www.raspberrypi.com/products/camera-module-v2/) or [NVIDIA Jetson](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/) that has a better processing power and memory capacity, making them more capable of memory-intensive algorithms. These cameras can handle complex machine learning models and offer a higher image quality.
