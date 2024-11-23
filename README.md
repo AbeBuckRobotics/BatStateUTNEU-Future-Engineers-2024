@@ -79,7 +79,7 @@
   * [7.2. Vehicle Photos](#72-vehicle-photos)
   * [7.3. Vehicle Virtual Model](#73-vehicle-virtual-model)
   * [7.4. Vehicle Building Instructions](#74-vehicle-building-instructions)
-  * [7.5. Vehicle Table of Materials](75-vehicle-table-of-materials)
+  * [7.5. Vehicle Table of Materials](#75-vehicle-table-of-materials)
   * [7.6. Vehicle Bills of Materials](#76-vehicle-bills-of-materials)
 
 ***
