@@ -449,9 +449,35 @@ Here is a Youtube video link showcasing the illustration above: https://youtu.be
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The team strongly encourages everyone to enhance their program and robot build as true engineering involves not only creating solutions but also sharing ideas with others to drive innovation forward. You may refer to the team's [<i>Chapter 5: Recommendations</i>](#5-recommendations) for their insights on how you can improve their work. By building upon each other's work, we can collectively advance the project to new levels, allowing it to evolve and reach its full potential through teamwork.
 
+***
+
 # 7. Appendices
 
-## 7.1. Vehicle Photos
+These are the supplementary figures for the team's engineering documentation about the robot and the team.
+
+## 7.1. Team Photos
+
+This part contains multiple official and funny photos of the team in order for judges to identify the team during the competition.
+
+| Team Official Photo 1                  |
+| ----------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Team%20Photos/Team-Official_Photo_1.jpg?">|
+
+| Team Official Photo 2               | Team Official Photo 3           |
+| ----------------------------------- | ------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Team%20Photos/Team-Official_Photo_2.jpg?" width = "700">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Team%20Photos/Team-Official_Photo_3.jpg?" width = "700">|
+
+| Team Funny Photo 1                  |
+| ----------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Team%20Photos/Team-Funny_Photo_1.jpg?">|
+
+| Team Funny Photo 2                  | Team Funny Photo 3              |
+| ----------------------------------- | ------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Team%20Photos/Team-Funny_Photo_2.jpg?" width = "700">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Team%20Photos/Team-Funny_Photo_3.jpg?" width = "700">|
+
+## 7.2. Vehicle Photos
+
+This part contains multiple photos showing all six (6) sides of the robot and one isometric view of the robot. 
 
 | Front View                          | Rear View                       |
 | ----------------------------------- | ------------------------------- |
@@ -469,7 +495,9 @@ Here is a Youtube video link showcasing the illustration above: https://youtu.be
 | --------------------------------------------------------------------- |
 |<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Photos/Isometric_View-BSU_Spartan_Team.jpg?">|
 
-## 7.2. Vehicle Virtual Model
+## 7.3. Vehicle Virtual Model
+
+This part contains multiple photos displaying all six (6) sides and one isometric view of the robot's virtual model. These were made with the use of [<i>Studio 2.0</i>](https://www.bricklink.com/v3/studio/main.page).
 
 | Front View                          | Rear View                       |
 | ----------------------------------- | ------------------------------- |
@@ -486,4 +514,3 @@ Here is a Youtube video link showcasing the illustration above: https://youtu.be
 | Isometric View                                                        |
 | --------------------------------------------------------------------- |
 |<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Virtual%20Model/Isometric_View_Virtual-BSU_Spartan_Team.png?">|
-
