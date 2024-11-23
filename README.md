@@ -10,17 +10,6 @@
 
 ***
 
-## The Team:
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meet the members of the BSU Spartan Team, each bringing unique skills and dedication to our mission at the World Robot Olympiad Turkiye 2024 International Finals. Together, we have combined our knowledge in engineering, programming, and robotics to create a self-driving robot for the Future Engineers category. Driven by a passion for technology and a commitment to excellence, we represent the spirit of teamwork and the pursuit of knowledge
-
-- Joseph Bernard A. Maala, 17, (Right)
-- John Angelo M. Bautista, 17, (Left)
-  
-<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/0.1.png?">
-
-***
-
 ## List of Directories
 
 * [`Discussion Images`](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Discussion%20Images) contains all the images that is showcased in this README.md file.
@@ -36,6 +25,7 @@
 
 ## Main Content
 
+* [The Team](#the-team)
 * [Introduction](#introduction)
 * [Robot Specifications](#robot-specifications)
 * [1. Mobility Management](#1-mobility-management)
@@ -81,6 +71,17 @@
   * [7.4. Vehicle Building Instructions](#74-vehicle-building-instructions)
   * [7.5. Vehicle Table of Materials](#75-vehicle-table-of-materials)
   * [7.6. Vehicle Bills of Materials](#76-vehicle-bills-of-materials)
+
+***
+
+## The Team:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meet the members of the BSU Spartan Team, each bringing unique skills and dedication to our mission at the World Robot Olympiad Turkiye 2024 International Finals. Together, we have combined our knowledge in engineering, programming, and robotics to create a self-driving robot for the Future Engineers category. Driven by a passion for technology and a commitment to excellence, we represent the spirit of teamwork and the pursuit of knowledge
+
+- Joseph Bernard A. Maala, 17, (Right)
+- John Angelo M. Bautista, 17, (Left)
+  
+<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/0.1.png?">
 
 ***
 
