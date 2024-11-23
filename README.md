@@ -3,8 +3,8 @@
 
 # BSU Spartan Team – Philippines
 [![](https://img.shields.io/badge/FE-Rulebook-2e52af)](https://wro-association.org/wp-content/uploads/WRO-2024-Future-Engineers-Self-Driving-Cars-General-Rules.pdf)
-[![](https://img.shields.io/badge/YouTube-▶️%20OPEN_CHALLENGE-df3e3e?logo=youtube)](https://youtu.be/06rUdOECv34?si=MXno1v4bBEbKgmpB)
-[![](https://img.shields.io/badge/YouTube-▶️%20OBSTACLE_CHALLENGE-df3e3e?logo=youtube)](https://youtu.be/ykb_tLmTXMM?si=5-LzPXuHlno7lfPP)
+[![](https://img.shields.io/badge/YouTube-OPEN_CHALLENGE-df3e3e?logo=youtube)](https://youtu.be/06rUdOECv34?si=MXno1v4bBEbKgmpB)
+[![](https://img.shields.io/badge/YouTube-OBSTACLE_CHALLENGE-df3e3e?logo=youtube)](https://youtu.be/ykb_tLmTXMM?si=5-LzPXuHlno7lfPP)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This repository provides the BSU Spartan Team’s self-driving car, developed and programmed by our team from the Philippines for the Future Engineers Category. Here, you’ll find details about the robot’s design, functionality, and features, reflecting our dedication to pushing the boundaries of autonomous technology.
 
@@ -317,13 +317,13 @@ else:
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/3.3.1.png?">
 
-* Green arrow – Green traffic sign
-* Red arrow – Red traffic sign
-* Gray arrow – Green traffic sign with presence of parking lot
+Here is a Youtube video link showcasing the illustration above: https://youtu.be/PlOC34wzCP0
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the robot wasn't able to detect the color of the traffic sign, the robot would follow either the `Green` traffic sign or `Red` traffic sign route. If ever the color of the traffic signs in the same straightforward sections are different, which is very likely, the robot will follow the same logic stated earlier. Here is another illustration for better visualization:
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/3.3.2.png?">
+
+Here is a Youtube video link showcasing the illustration above: https://youtu.be/L2z4CiZgFcM
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lastly, the robot is programmed to record the color and position of the traffic signs encountered of each straightforward section during its first lap. This approach ensures that there will be no false detections during its second and third lap.
 
@@ -333,6 +333,8 @@ else:
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/3.4.1.png?">
 
+Here is a Youtube video link showcasing the illustration above: https://youtu.be/5FnPKSTPPYQ
+
 ### 3.2.5. Third Lap Continuation
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The robot must continue to the third lap in the in the opposite direction if the last traffic sign detected is Red. In order to determine if the robot must perform the said action, the robot uses the recorded color and position of traffic signs it detected during the first lap. If ever the last detected traffic sign is Red, the robot would make its turn in the next corner section of the starting straightforward section of the robot. Here is an illustration demonstrating the route the robot will take for the third lap continuation:
@@ -340,6 +342,8 @@ else:
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/3.5.1.png?">
 
 * The position of the yellow car is where the robot starts.
+
+Here is a Youtube video link showcasing the illustration above: https://youtu.be/UfTveOGK-nU
 
 ***
 
