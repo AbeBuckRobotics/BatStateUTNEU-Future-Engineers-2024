@@ -15,10 +15,9 @@ _clock.reset()
 
 while (_robotLaps < _robotLapsTarget - 4):
     _robotLaps += 1
-    print(f"\nLaps: {_robotLaps / 4}")
+    print(f"Laps: {_robotLaps / 4}")
 
     _recordListMain[_robotLaps % 4] = obstacleClockwise(_recordListMain[_robotLaps % 4], _robotLaps) if (_robotDirection == 1) else obstacleCounter(_recordListMain[_robotLaps % 4], _robotLaps)
-    # _recordListMain = [[None for y in range(4)] for x in range(4)]
 
 _robotUTurn, _recordListMain = obstacleUTurn(_robotDirection, _recordListMain)
 
