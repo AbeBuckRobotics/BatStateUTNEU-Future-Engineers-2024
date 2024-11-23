@@ -31,9 +31,9 @@ while (_robotLaps < _robotLapsTarget):
     print(f"Laps: {_robotLaps / 4}")
 
     if (_robotDirection == 1):
-        obstacleClockwise(_recordListMain[_robotLaps % 4], _robotLaps)
+        obstacleClockwise(_recordListMain[_robotLaps % 4], _robotLaps, _robotLapsTarget)
     else:
-        obstacleCounter(_recordListMain[_robotLaps % 4], _robotLaps)
+        obstacleCounter(_recordListMain[_robotLaps % 4], _robotLaps, _robotLapsTarget)
 
 _timeLoop = _clock.time()
 _clock.reset()
@@ -42,4 +42,5 @@ obstacleParking(_robotDirection, _recordListMain)
 _timeParking = _clock.time()
 
 print(f"\n\nStart: {_timeStart}\tLoop: {_timeLoop}\tParking: {_timeParking}")
-print(f"\nFINAL TIME: {_timeStart + _timeLoop + _timeParking}")
+print(f"\nScoring Time: {_timeStart + _timeLoop}")
+print(f"Round Time: {_timeStart + _timeLoop + _timeParking}")
