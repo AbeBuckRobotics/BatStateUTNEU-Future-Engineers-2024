@@ -31,6 +31,9 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
     steerMotor = Motor(Port.B, Direction.COUNTERCLOCKWISE, [1], False, 5)
     visionMotor = Motor(Port.F, Direction.CLOCKWISE, [1], False, 5)
 
+    if (visionMotor.angle() > 180):
+        visionMotor.reset_angle(visionMotor.angle() - 360)
+
     monke = FutureEngineers(driveMotor, steerMotor, visionMotor)
 
     parking, trafficSign, recordListValue = "", "", []
@@ -68,12 +71,12 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
                     monke.HOLD(100)
 
                     monke.driveMotor.control.limits(acceleration= 800)
-                    monke.street(50, 0, 2000, 2000)
+                    monke.street(100, 0, 2000, 2000)
                     monke.fastAcceleration(True)
-                    monke.streetStall(300, 0, 900, 900, 100)
+                    monke.streetStall(250, 0, 900, 900, 100)
 
                 monke.driveMotor.control.limits(acceleration= 800)
-                monke.street(-40, 0, 2000, 2000)
+                monke.street(-30, 0, 850, 850)
                 monke.look(0, False)
                 monke.fastAcceleration(True)
                 monke.turn(-1, 90, 50, 850, 600)
@@ -104,15 +107,15 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
 
                     monke.turn(1, 60, 40, 2000, 2000)
                     monke.fastAcceleration(True)
-                    monke.street(130, 60, 2000, 2000)
+                    monke.street(100, 60, 2000, 2000)
                     monke.turn(1, 0, 40, 2000, 2000)
                     monke.streetLine(120, 0, 2000, 2000)
 
                     monke.turn(1, -60, 40, 2000, 2000)
                     monke.street(350, -60, 2000, 2000)
                     monke.look(RIGHT, False)
-                    monke.turn(1, 0, 40, 1000, 750)
-                    monke.streetStall(10, 0, 850, 800, 100)
+                    monke.turn(1, 0, 40, 850, 750)
+                    monke.streetStall(10, 0, 750, 700, 100)
 
                 else:
                     # nParking nGreen fNormal fGreen
@@ -126,12 +129,12 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
                         monke.FINISHINGHOLD()
 
                     monke.fastAcceleration(False)
-                    monke.street(150, 0, 2000, 2000)
+                    monke.street(150, -1, 850, 850)
                     monke.fastAcceleration(True)
-                    monke.streetLine(500, 0, 2000, 2000)
-                    monke.street(200, -60, 2000, 2000)
+                    monke.streetLine(500, -1, 850, 850)
+                    monke.street(200, -60, 850, 850)
                     monke.look(RIGHT, False)
-                    monke.streetStall(300, 0, 2000, 2000, 100)
+                    monke.streetStall(300, -1, 2000, 2000, 100)
 
             else:
                 # nNormal nGreen
@@ -414,8 +417,8 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
                         monke.turn(1, 30, 40, 2000, 2000)
                         monke.street(280, 30, 2000, 2000)
                         monke.look(RIGHT, False)
-                        monke.turn(1, 90, 40, 1000, 750)
-                        monke.streetStall(50, 90, 750, 700, 100)
+                        monke.turn(1, 90, 40, 750, 650)
+                        monke.streetStall(10, 90, 650, 600, 100)
 
     finally: 
         monke.motorClose()
@@ -428,27 +431,26 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
         
 
 if __name__ == "__main__":
+    hub.speaker.beep(500)
+    _ = Motor(Port.F, Direction.CLOCKWISE, [1], False, 5)
+    _.run_target(1000, 90, Stop.HOLD, False)
+    wait(800)
+    _.close()
+
     try:
-        print(hub.battery.voltage())
-        hub.speaker.beep(500)
+        while True:
+            print(hub.battery.voltage())
 
-        recordListValue = [None for x in range(4)]
-        _ = Motor(Port.F, Direction.CLOCKWISE, [1], False, 5)
-        _.run_target(1000, 90, Stop.HOLD, False)
-        wait(800)
-        _.close()
+            recordListValue = [None for x in range(4)]
 
-        robotLaps = 0
-        robotLapsTarget = 4
+            robotLaps = 0
+            robotLapsTarget = 10
 
-        while robotLaps < robotLapsTarget:
-            robotLaps += 1
+            for i in range(4):
+                robotLaps += 1
 
-            print("\n")
-            # recordListValue = [None for x in range(4)]
-            hub.imu.reset_heading(0)
-            recordListValue = obstacleClockwise(recordListValue, robotLaps, robotLapsTarget)
-            print(f"Time: {clock.time()}")
+                recordListValue = obstacleClockwise(recordListValue, robotLaps, robotLapsTarget)
+                print(f"Time: {clock.time()}")
 
     finally:
         v = Motor(Port.F, Direction.CLOCKWISE, [1], False, 5)
@@ -456,3 +458,7 @@ if __name__ == "__main__":
         v.run_target(1000, RIGHT, Stop.HOLD, False)
         s.run_target(1000, 0, Stop.HOLD, False)
         wait(800)
+
+        v.close()
+        s.close()
+
