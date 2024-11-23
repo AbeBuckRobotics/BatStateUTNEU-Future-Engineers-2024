@@ -4,7 +4,7 @@
 Vehicle Virtual Model
 ====
 
-This directory contains multiple photos displaying all six (6) sides and one isometric view of the robot's virtual model.
+This directory contains multiple photos displaying all six (6) sides and one isometric view of the robot's virtual model. These were made with the use of [<i>Studio 2.0</i>](https://www.bricklink.com/v3/studio/main.page).
 
 ***
 
