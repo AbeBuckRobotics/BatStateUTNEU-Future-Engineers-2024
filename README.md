@@ -514,3 +514,50 @@ This part contains multiple photos displaying all six (6) sides and one isometri
 | Isometric View                                                        |
 | --------------------------------------------------------------------- |
 |<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Virtual%20Model/Isometric_View_Virtual-BSU_Spartan_Team.png?">|
+
+## 7.4. Vehicle Building Instructions
+
+This directory contains multiple files displaying the specific step by step instructions to construct the robot and its specific parts. These were made with the use of [<i>Studio 2.0</i>](https://www.bricklink.com/v3/studio/main.page).
+
+| Driving Mechanism - 7 pages         | Steering Mechanism - 24 pages   |
+| ----------------------------------- | ------------------------------- |
+|[![](https://github.com/user-attachments/assets/897f204c-63e8-4a98-b780-65a0706e31ae)](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/Driving%20Mechanism%20Building%20Instructions.pdf)|[![](https://github.com/user-attachments/assets/23bfa546-f6b0-4503-9830-d1ab1caa492e)](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/Steering%20Mechanism%20Building%20Instructions.pdf)|
+
+
+| OpenMV Cam H7 Plus Mount - 22 pages | Distance Sensor Mount - 22 pages|
+| ----------------------------------- | ------------------------------- |
+|[![](https://github.com/user-attachments/assets/3f483c1a-727c-46e8-af8a-ecd24eb055ba)](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/OpenMV%20Cam%20H7%20Plus%20Mount.pdf)|[![](https://github.com/user-attachments/assets/e55ab5d4-6b60-45f2-82fc-69319e8e2d15)](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/Distance%20Sensor%20Mount.pdf)|
+
+| Whole Robot - 298 pages             |
+| ----------------------------------- |
+|[<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Virtual%20Model/Isometric_View_Virtual-BSU_Spartan_Team.png?">](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/Whole%20Robot-Part%201_Building%20Instructions.pdf)|
+
+## 7.5. Vehicle Table of Materials
+
+This contains all of the parts of the robot as well as their quantities necessary to develop the output robot.
+
+| Table of Materials - No. 1 to No. 7 | Table of Materials - No. 8 to No. 15 |
+| ----------------------------------- | ------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/List%20of%20Materials/Table%20of%20Materials/Table_of_Materials-Part_1.png?" width = "480">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/List%20of%20Materials/Table%20of%20Materials/Table_of_Materials-Part_2.png?" width = "480">|
+
+| Table of Materials - No. 16 to No. 22 | Table of Materials - No. 23 to No. 29 |
+| ----------------------------------- | ------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/List%20of%20Materials/Table%20of%20Materials/Table_of_Materials-Part_3.png?" width = "480">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/List%20of%20Materials/Table%20of%20Materials/Table_of_Materials-Part_4.png?" width = "480">|
+
+| Table of Materials - No. 30 to No. 37 | Table of Materials - No. 38 to No. 44 |
+| ----------------------------------- | ------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/List%20of%20Materials/Table%20of%20Materials/Table_of_Materials-Part_5.png?" width = "480">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/List%20of%20Materials/Table%20of%20Materials/Table_of_Materials-Part_6.png?" width = "480">|
+
+| Table of Materials - No. 45 to No. 52 | Table of Materials - No. 53 to No. 59 |
+| ----------------------------------- | ------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/List%20of%20Materials/Table%20of%20Materials/Table_of_Materials-Part_7.png?" width = "480">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/List%20of%20Materials/Table%20of%20Materials/Table_of_Materials-Part_8.png?" width = "480">|
+
+| Table of Materials - No. 60 to No. 61 |
+| ----------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/List%20of%20Materials/Table%20of%20Materials/Table_of_Materials-Part_9.png?" width = "480">|
+
+## 7.6. Vehicle Bills of Materials
+
+This contains a complete inventory of the robotic sets and their prices necessary to develop the output robot.
+
+<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/List%20of%20Materials/Bills_of_Materials.png?">
