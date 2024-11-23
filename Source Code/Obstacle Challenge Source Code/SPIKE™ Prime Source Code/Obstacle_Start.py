@@ -5,6 +5,9 @@ def obstacleStart():
     steerMotor = Motor(Port.B, Direction.COUNTERCLOCKWISE, [1], False, 5)
     visionMotor = Motor(Port.F, Direction.CLOCKWISE, [1], False, 5)
 
+    if (visionMotor.angle() > 180):
+        visionMotor.reset_angle(visionMotor.angle() - 360)
+
     monke = FutureEngineers(driveMotor, steerMotor, visionMotor)
 
     linePresence, parking, trafficSign = "", "", ""
@@ -212,9 +215,9 @@ def obstacleStart():
     monke.motorClose()
 
     if (_robotDirection == 1):
-        print("CLOCKWISE")
+        print("CLOCKWISE\n")
     else:
-        print("COUNTERCLOCKWISE")
+        print("COUNTERCLOCKWISE\n")
         
     return _robotDirection
 
