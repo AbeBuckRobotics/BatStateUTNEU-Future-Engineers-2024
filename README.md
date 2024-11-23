@@ -306,7 +306,7 @@ gtsCall = camera.call('blob')
 
 ### 3.2.2. Parking Lot Detection
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to determine if there is a presence of parking lot in each straightforward section, the distance sensor of the robot is used instead of the camera. The team have selected this approach since it doesn't require them to find the proper LAB threshold for the color of the parking lot. The `distance()` function of the `pupdevices` module is used to determine if there is a presence of the parking lot.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to determine if there is a presence of a parking lot in each straightforward section, the distance sensor of the robot is used instead of the camera. The team have selected this approach since it doesn't require them to find the proper LAB threshold for the color of the parking lot. The `distance()` function of the `pupdevices` module is used to determine if there is a presence of the parking lot.
 
 ```py
 print(distanceSensor.distance(), end = " ")
