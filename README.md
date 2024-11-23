@@ -74,6 +74,13 @@
   * [6.1. Robot Construction Guide](#61-robot-construction-guide)
   * [6.2. Program Construction Guide](#62-program-construction-guide)
   * [6.3. Final Step](#63-final-step)
+* [7. Appendices](#7-appendices)
+  * [7.1. Team Photos](#71-team-photos)
+  * [7.2. Vehicle Photos](#72-vehicle-photos)
+  * [7.3. Vehicle Virtual Model](#73-vehicle-virtual-model)
+  * [7.4. Vehicle Building Instructions](#74-vehicle-building-instructions)
+  * [7.5. Vehicle Table of Materials](75-vehicle-table-of-materials)
+  * [7.6. Vehicle Bills of Materials](#76-vehicle-bills-of-materials)
 
 ***
 
