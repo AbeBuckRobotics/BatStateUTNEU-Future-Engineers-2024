@@ -445,3 +445,41 @@ else:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The team strongly encourages everyone to enhance their program and robot build as true engineering involves not only creating solutions but also sharing ideas with others to drive innovation forward. You may refer to the team's [<i>Chapter 5: Recommendations</i>](#5-recommendations) for their insights on how you can improve their work. By building upon each other's work, we can collectively advance the project to new levels, allowing it to evolve and reach its full potential through teamwork.
 
+# 7. Appendices
+
+## 7.1. Vehicle Photos
+
+| Front View                          | Rear View                       |
+| ----------------------------------- | ------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Photos/Front_View-BSU-Spartan-Team.jpg?" width = "700">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Photos/Rear_View-BSU-Spartan-Team.jpg?" width = "700">|
+
+| Left Side View                      | Right Side View                 |
+| ----------------------------------- | ------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Photos/Left_Side_View-BSU-Spartan-Team.jpg?" width = "700">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Photos/Right_Side_View-BSU-Spartan-Team.jpg?" width = "700">|
+
+| Top View                            | Bottom  View                    | 
+| ----------------------------------- | ------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Photos/Top_View-BSU-Spartan-Team.jpg?" width = "700">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Photos/Bottom_View-BSU-Spartan-Team.jpg?" width = "700">|
+
+| Isometric View                                                        |
+| --------------------------------------------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Photos/Isometric_View-BSU_Spartan_Team.jpg?">|
+
+## 7.2. Vehicle Virtual Model
+
+| Front View                          | Rear View                       |
+| ----------------------------------- | ------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Virtual%20Model/Front_View_Virtual-BSU_Spartan_Team.png?" width = "700">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Virtual%20Model/Rear_View_Virtual-BSU_Spartan_Team.png?" width = "700">|
+
+| Left Side View                      | Right Side View                 |
+| ----------------------------------- | ------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Virtual%20Model/Left_Side_View_Virtual-BSU_Spartan_Team.png?" width = "700">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Virtual%20Model/Right_Side_View_Virtual-BSU_Spartan_Team.png?" width = "700">|
+
+| Top View                            | Bottom  View                    | 
+| ----------------------------------- | ------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Virtual%20Model/Top_View_Virtual-BSU_Spartan_Team.png?" width = "700">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Virtual%20Model/Bottom_View_Virtual-BSU_Spartan_Team.png?" width = "700">|
+
+| Isometric View                                                        |
+| --------------------------------------------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Virtual%20Model/Isometric_View_Virtual-BSU_Spartan_Team.png?">|
+
