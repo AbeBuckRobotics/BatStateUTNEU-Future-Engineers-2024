@@ -4,7 +4,7 @@
 Vehicle Building Instructions
 ====
 
-This directory contains multiple files displaying the specific step by step instructions to construct the robot and its specific parts.
+This directory contains multiple files displaying the specific step by step instructions to construct the robot and its specific parts. These were made with the use of [<i>Studio 2.0</i>](https://www.bricklink.com/v3/studio/main.page).
 
 ***
 
