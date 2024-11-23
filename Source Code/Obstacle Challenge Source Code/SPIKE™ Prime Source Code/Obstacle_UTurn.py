@@ -5,6 +5,9 @@ def obstacleUTurn(robotDirection, recordListInput):
     steerMotor = Motor(Port.B, Direction.COUNTERCLOCKWISE, [1], False, 5)
     visionMotor = Motor(Port.F, Direction.CLOCKWISE, [1], False, 5)
 
+    if (visionMotor.angle() > 180):
+        visionMotor.reset_angle(visionMotor.angle() - 360)
+
     monke = FutureEngineers(driveMotor, steerMotor, visionMotor)
 
     recordListReturn = [False, [[None for __ in range(4)] for _ in range(4)]]
