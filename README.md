@@ -25,8 +25,8 @@
 
 ## Main Content
 
-* [The Team](#the-team)
 * [Introduction](#introduction)
+* [The Team](#the-team)
 * [Robot Specifications](#robot-specifications)
 * [1. Mobility Management](#1-mobility-management)
   * [1.1. Motor Selection](#11-motor-selection)
@@ -76,6 +76,14 @@
 
 ***
 
+## Introduction
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This engineering documentation provides an in-depth overview of the BSU Spartan Team's self-driving robot, designed and programmed by our team from the Philippines for the Future Engineers Category at the WRO Turkiye 2024 International Finals. Here, you’ll find details about the robot’s design, functionality, and features, reflecting our dedication to pushing the boundaries of autonomous technology.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This gives key aspects of the BSU Spartan Team’s robot’s development. It covers  Mobility Management, detailing motor selection, chassis design, and assembly based on principles of speed, torque, and power; Power and Sense Management, explaining the vehicle’s power sources and sensor configurations, supported by a wiring diagram and Bill of Materials (BOM); Obstacle Management, outlining strategies for navigating the course with flow diagrams and detailed code. To further support these technical details, the team added visual documentation that includes actual and 3D model images of the robot from all sides and team photos. Moreover, performance videos showcase the robot’s functionality across challenges. All of this reflects our team’s dedication to pushing the boundaries of autonomous technology and achieving excellence on the global stage.
+
+***
+
 ## The Team:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meet the members of the BSU Spartan Team, each bringing unique skills and dedication to our mission at the World Robot Olympiad Turkiye 2024 International Finals. Together, we have combined our knowledge in engineering, programming, and robotics to create a self-driving robot for the Future Engineers category. Driven by a passion for technology and a commitment to excellence, we represent the spirit of teamwork and the pursuit of knowledge
@@ -84,12 +92,6 @@
 - John Angelo M. Bautista, 17, (Left)
   
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/0.1.png?">
-
-***
-
-## Introduction
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This engineering documentation provides an overview of the BSU Spartan Team's self-driving car, designed for the WRO Turkiye 2024 International Finals. It covers Mobility Management, detailing motor selection, chassis design, and assembly based on principles of speed, torque, and power; Power and Sense Management, explaining the vehicle’s power sources and sensor configurations with a wiring diagram and BOM; and Obstacle Management, outlining strategies for navigating the course with flow diagrams and detailed code. Visual documentation includes images of the robot from all sides and team photos, while performance videos showcase the robot’s functionality across challenges. 
 
 ***
 
