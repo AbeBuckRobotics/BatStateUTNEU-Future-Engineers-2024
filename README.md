@@ -325,13 +325,17 @@ else:
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/3.3.1.png?">
 
-Here is a Youtube video link showcasing the illustration above: https://youtu.be/PlOC34wzCP0
+Here is a Youtube video showcasing the actual robot doing the illustration above:
+
+[![](https://img.shields.io/badge/YouTube-Traffic_Sign_Sample_Route_1-df3e3e?logo=youtube)](https://youtu.be/PlOC34wzCP0) 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the robot wasn't able to detect the color of the traffic sign, the robot would follow either the `Green` traffic sign or `Red` traffic sign route. If ever the color of the traffic signs in the same straightforward sections are different, which is very likely, the robot will follow the same logic stated earlier. Here is another illustration for better visualization:
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/3.3.2.png?">
 
-Here is a Youtube video link showcasing the illustration above: https://youtu.be/L2z4CiZgFcM
+Here is a Youtube video showcasing the actual robot doing the illustration above:
+
+[![](https://img.shields.io/badge/YouTube-Traffic_Sign_Sample_Route_2-df3e3e?logo=youtube)](https://youtu.be/L2z4CiZgFcM) 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lastly, the robot is programmed to record the color and position of the traffic signs encountered of each straightforward section during its first lap. This approach ensures that there will be no false detections during its second and third lap.
 
@@ -341,7 +345,9 @@ Here is a Youtube video link showcasing the illustration above: https://youtu.be
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/3.4.1.png?">
 
-Here is a Youtube video link showcasing the illustration above: https://youtu.be/5FnPKSTPPYQ
+Here is a Youtube video showcasing the actual robot doing the illustration above:
+
+[![](https://img.shields.io/badge/YouTube-Parking_Lot_Sample_Route-df3e3e?logo=youtube)](https://youtu.be/5FnPKSTPPYQ)  
 
 ### 3.2.5. Third Lap Continuation
 
@@ -351,7 +357,9 @@ Here is a Youtube video link showcasing the illustration above: https://youtu.be
 
 * The position of the yellow car is where the robot starts.
 
-Here is a Youtube video link showcasing the illustration above: https://youtu.be/UfTveOGK-nU
+Here is a Youtube video showcasing the actual robot doing the illustration above:
+
+[![](https://img.shields.io/badge/YouTube-Third_Lap_Opposite_Direction_Sample_Route-df3e3e?logo=youtube)](https://youtu.be/UfTveOGK-nU) 
 
 ***
 
