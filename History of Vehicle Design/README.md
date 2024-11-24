@@ -25,6 +25,6 @@ The following versions of the robot are equipped with a complete set of sensors.
 ## Version 1
 The first versions of the robot focused primarily on conceptualizing the design to be used in the National Competition. We planned to integrate a rotating mechanism for the distance sensor and camera, allowing a 180-degree rotation. However, the robot did not have a camera at the time due to the unavailability of one at the school. Without a camera, these early versions were only programmed to complete the Open Challenge. In [Version 1.2](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/History%20of%20Vehicle%20Design/Vehicle%20v1.2.jpg), we began experimenting with adding gears intended for use in the Obstacle Challenge, which would be implemented once a camera became available.
 
-| v1.3 - June 27, 2024                | v1.2 - June 06, 2024            | v1.1 - June 03, 2024            |
+| v1.3 - June 07, 2024                | v1.2 - June 06, 2024            | v1.1 - June 03, 2024            |
 | ----------------------------------- | ------------------------------- | ------------------------------- |
 |<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/History%20of%20Vehicle%20Design/Vehicle%20v1.3.jpg?" width = "500">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/History%20of%20Vehicle%20Design/Vehicle%20v1.2.jpg?" width = "500">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/History%20of%20Vehicle%20Design/Vehicle%20v1.1.jpg?" width = "500">|
