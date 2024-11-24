@@ -86,7 +86,9 @@
 
 ## The Team:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meet the members of the BSU Spartan Team, each bringing unique skills and dedication to our mission at the World Robot Olympiad Turkiye 2024 International Finals. Together, we have combined our knowledge in engineering, programming, and robotics to create a self-driving robot for the Future Engineers category. Driven by a passion for technology and a commitment to excellence, we represent the spirit of teamwork and the pursuit of knowledge
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meet the members of the BSU Spartan Team, each bringing unique skills and dedication to our mission at the World Robot Olympiad Turkiye 2024 International Finals. Together, we have combined our knowledge in engineering, programming, and robotics to create a self-driving robot for the Future Engineers category. Driven by a passion for technology and a commitment to excellence, we represent the spirit of teamwork and the pursuit of knowledge.
+
+In the following images are the pictures of both members from the Future Engineers team including their robot.
 
 - Joseph Bernard A. Maala, 17, (Right)
 - John Angelo M. Bautista, 17, (Left)
