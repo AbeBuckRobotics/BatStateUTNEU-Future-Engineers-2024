@@ -71,6 +71,8 @@
   * [7.4. Vehicle Building Instructions](#74-vehicle-building-instructions)
   * [7.5. Vehicle Table of Materials](#75-vehicle-table-of-materials)
   * [7.6. Vehicle Bills of Materials](#76-vehicle-bills-of-materials)
+  * [7.7. Vehicle Wiring Diagram](#77-vehicle-wiring-diagram)
+* [8. Team's Final Words](#8-teams-final-words)
 
 ***
 
@@ -533,7 +535,7 @@ This part contains multiple photos displaying all six (6) sides and one isometri
 
 ## 7.4. Vehicle Building Instructions
 
-This directory contains multiple files displaying the specific step by step instructions to construct the robot and its specific parts. These were made with the use of [<i>Studio 2.0</i>](https://www.bricklink.com/v3/studio/main.page).
+This part contains multiple files displaying the specific step by step instructions to construct the robot and its specific parts. These were made with the use of [<i>Studio 2.0</i>](https://www.bricklink.com/v3/studio/main.page).
 
 | Driving Mechanism - 7 pages         | Steering Mechanism - 24 pages   |
 | ----------------------------------- | ------------------------------- |
@@ -550,7 +552,7 @@ This directory contains multiple files displaying the specific step by step inst
 
 ## 7.5. Vehicle Table of Materials
 
-This contains all of the parts of the robot as well as their quantities necessary to develop the output robot.
+This part contains all of the parts of the robot as well as their quantities necessary to develop the output robot.
 
 | Table of Materials - No. 1 to No. 7 | Table of Materials - No. 8 to No. 15 |
 | ----------------------------------- | ------------------------------- |
@@ -574,6 +576,18 @@ This contains all of the parts of the robot as well as their quantities necessar
 
 ## 7.6. Vehicle Bills of Materials
 
-This contains a complete inventory of the robotic sets and their prices necessary to develop the output robot.
+This table contains a complete inventory of the robotic sets and their prices necessary to develop the output robot.
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/List%20of%20Materials/Bills_of_Materials.png?">
+
+## 7.7. Vehicle Wiring Diagram
+
+This part contains a pictorial wiring diagram illustrating how all the motors and sensors connect to each other.
+
+<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Wiring%20Diagram/Robot%20Pictorial%20Diagram.png?">
+
+***
+
+# 8. Team's Final Words
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As stated in [<i>6.3. Construction Guide Final Step</i>](#63-final-step), the team strongly encourages everyone to enhance their program and robot build as true engineering involves not only creating solutions but also sharing ideas with others to drive innovation forward. You may refer to the team's [<i>Chapter 5: Recommendations</i>](#5-recommendations) for their insights on how you can improve their work. By building upon each other's work, we can collectively advance the project to new levels, allowing it to evolve and reach its full potential through teamwork.
