@@ -23,3 +23,7 @@ This directory contains multiple official and funny photos of the team in order 
 | Team Funny Photo 2                  | Team Funny Photo 3              |
 | ----------------------------------- | ------------------------------- |
 |<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Team%20Photos/Team-Funny_Photo_2.jpg?" width = "700">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Team%20Photos/Team-Funny_Photo_3.jpg?" width = "700">|
+
+| Joseph Bernard A. Maala             | John Angelo M. Bautista         |
+| ----------------------------------- | ------------------------------- |
+|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Team%20Photos/Team-Individual_Photo_1.jpg?" width = "700">|<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Team%20Photos/Team-Individual_Photo_2.jpg?" width = "700">|
