@@ -9,7 +9,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This repository provides the BSU Spartan Team’s self-driving car, developed and programmed by our team from the Philippines for the World Robot Olympiad™ 2024 – Future Engineers Category (Self-Driving Cars) with the theme Earth Allies. Here, you’ll find details about the robot’s design, functionality, and features, reflecting our dedication to pushing the boundaries of autonomous technology.
 
 > [!NOTE]
-> The team highly recommends the readers of this repository to use light mode when viewing this engineering documentation.
+> The team highly recommends the readers of this repository to use light default mode when viewing this engineering documentation.
 
 ***
 
