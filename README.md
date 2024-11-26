@@ -1,12 +1,12 @@
 
 ***
 
-# BSU Spartan Team – Philippines
+# BSU ISPARTAN TEAM – Philippines
 [![](https://img.shields.io/badge/FE-Rulebook-2e52af)](https://wro-association.org/wp-content/uploads/WRO-2024-Future-Engineers-Self-Driving-Cars-General-Rules.pdf)
 [![](https://img.shields.io/badge/YouTube-OPEN_CHALLENGE-df3e3e?logo=youtube)](https://youtu.be/06rUdOECv34?si=MXno1v4bBEbKgmpB)
 [![](https://img.shields.io/badge/YouTube-OBSTACLE_CHALLENGE-df3e3e?logo=youtube)](https://youtu.be/ykb_tLmTXMM?si=5-LzPXuHlno7lfPP)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This repository provides the BSU Spartan Team’s self-driving car, developed and programmed by our team from the Philippines for the World Robot Olympiad™ 2024 – Future Engineers Category (Self-Driving Cars) with the theme Earth Allies. Here, you’ll find details about the robot’s design, functionality, and features, reflecting our dedication to pushing the boundaries of autonomous technology.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This repository provides the BSU Ispartan Team’s self-driving car, developed and programmed by our team from the Philippines for the World Robot Olympiad™ 2024 – Future Engineers Category (Self-Driving Cars) with the theme Earth Allies. Here, you’ll find details about the robot’s design, functionality, and features, reflecting our dedication to pushing the boundaries of autonomous technology.
 
 > [!NOTE]
 > The team highly recommends the readers of this repository to use light default mode when viewing this engineering documentation.
