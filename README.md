@@ -56,9 +56,10 @@
     * [3.2.4. Parking Lot Strategy](#324-parking-lot-strategy)
     * [3.2.5. Third Lap Continuation](#325-third-lap-continuation)
 * [4. Engineering Factor](#4-engineering-factor)
-  * [4.1. Rotating Camera & Distance Sensor](#41-rotating-camera--distance-sensor)
-  * [4.2. Side Free Wheels](#42-side-free-wheels)
-  * [4.3. Camera LEGO Chassis](#43-camera-lego-chassis)
+  * [4.1. Robot Extender](#41-robot-extender)
+  * [4.2. Rotating Camera & Distance Sensor](#42-rotating-camera--distance-sensor)
+  * [4.3. Side Free Wheels](#43-side-free-wheels)
+  * [4.4. Camera LEGO Chassis](#44-camera-lego-chassis)
 * [5. Recommendations](#5-recommendations)
   * [5.1. Mobility Management Recommendations](#51-mobility-management-recommendations)
   * [5.2. Power and Sense Management Rcommendations](#52-power-and-sense-management-recommendations)
@@ -215,7 +216,7 @@ In the following images are the pictures of both members from the Future Enginee
 
 ### 2.2.5. Additional Information
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Both the SPIKE™ Distance Sensor and OpenMV Cam H7 Plus are mounted to a SPIKE™ Large Motor. For more information, visit [<i>4.1. Rotating Camera & Distance Sensor</i>](#41-rotating-camera--distance-sensor) in [<i>Chapter 4: Engineering Factor</i>](#4-engineering-factor).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Both the SPIKE™ Distance Sensor and OpenMV Cam H7 Plus are mounted to a SPIKE™ Large Motor. For more information, visit [<i>4.2. Rotating Camera & Distance Sensor</i>](#42-rotating-camera--distance-sensor) in [<i>Chapter 4: Engineering Factor</i>](#4-engineering-factor).
 
 ***
 
@@ -378,13 +379,17 @@ Here is a Youtube video showcasing the actual robot doing the illustration above
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The whole physical structure of the robot was completely designed and manufactured by the team out of LEGO® Technic. While there are standard off-the-shelf electrical components such as motors and sensors for the robot's functionality, the robot's design remains unique, embodying innovative features that set it apart from typical robots. Here are such features:
 
-### 4.1.   Robot Extender
+### 4.1. Robot Extender
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Batang ISpartan Team’s robot is equipped with an extender that is capable of extending the robot length by approximately 95 mm. This was primarily developed to expand the parking space since it is dependent on the length of the robot. With the enlarged parking space, the robot can easily perform a complete parking between the parking lot boundaries. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The main plan of the team is to enable the robot extender during the vehicle check time since this is the time period where the dimensions of the robot will be measured. This method is still activated until the round starts, wherein the robot will be aligned to its starting position while still having its extender enabled. This therefore will create an enlarged parking space. When the program is played and when the robot marks their first move, the robot will disable the extender. With the disabled extender, the robot will then finish the three rounds using its shortened length. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The robot extender is controlled by two (2) SPIKE™ Medium Motors which are powered by another SPIKE™ Large Hub, which will be referenced as a sub hub. The team wasn't able to make these motors powered by the main hub since all of its ports were already used.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The robot extender is controlled by two (2) SPIKE™ Medium Motors which are powered by another SPIKE™ Large Hub, which will be referenced as a sub hub. The team wasn't able to make these motors powered by the main hub since all of its ports were already used. Moreover, the team cannot simply use Bluetooth since it is not allowed during the competition rounds as it was also mentioned in the rulebook. Therefore, in order for the main hub to communicate with the sub hub to disable the robot extender. The team decided to develop a new technique to communicate in between these hubs. First, the sub hub is equipped with a SPIKE™ Color Sensor; the main component that will be used for the communication. This color sensor is mounted behind the camera. At the start of the program, the main hub commands the vision motor to rotate the camera, also moving the color sensor behind it. The team programmed the sub hub so that when the color sensor doesn’t detect any white lego parts, it will operate the two medium motors to disable the extender. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Additionally, the robot extender gives the robot additional weight at the back therefore making the robot wheels more tractable on the field and less slippery. The said extender is made out of pure lego, securely mounted into two medium motors and has an axle in the middle which connects the two medium motors making it consistent and accurate since both motors will move at the same speed at the same time. 
+
+
 
 ### 4.2. Rotating Camera & Distance Sensor
 
