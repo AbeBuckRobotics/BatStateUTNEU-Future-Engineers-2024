@@ -6,7 +6,7 @@
 [![](https://img.shields.io/badge/YouTube-OPEN_CHALLENGE-df3e3e?logo=youtube)](https://youtu.be/06rUdOECv34?si=MXno1v4bBEbKgmpB)
 [![](https://img.shields.io/badge/YouTube-OBSTACLE_CHALLENGE-df3e3e?logo=youtube)](https://youtu.be/ykb_tLmTXMM?si=5-LzPXuHlno7lfPP)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This repository provides the BSU Ispartan Team’s self-driving car, developed and programmed by our team from the Philippines for the World Robot Olympiad™ 2024 – Future Engineers Category (Self-Driving Cars) with the theme Earth Allies. Here, you’ll find details about the robot’s design, functionality, and features, reflecting our dedication to pushing the boundaries of autonomous technology.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This repository provides the BSU ISpartan Team’s self-driving car, developed and programmed by our team from the Philippines for the World Robot Olympiad™ 2024 – Future Engineers Category (Self-Driving Cars) with the theme Earth Allies. Here, you’ll find details about the robot’s design, functionality, and features, reflecting our dedication to pushing the boundaries of autonomous technology.
 
 > [!NOTE]
 > The team highly recommends the readers of this repository to use light default mode when viewing this engineering documentation.
@@ -378,19 +378,27 @@ Here is a Youtube video showcasing the actual robot doing the illustration above
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The whole physical structure of the robot was completely designed and manufactured by the team out of LEGO® Technic. While there are standard off-the-shelf electrical components such as motors and sensors for the robot's functionality, the robot's design remains unique, embodying innovative features that set it apart from typical robots. Here are such features:
 
-### 4.1. Rotating Camera & Distance Sensor
+### 4.1.   Robot Extender
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Batang ISpartan Team’s robot is equipped with an extender that is capable of extending the robot length by approximately 95 mm. This was primarily developed to expand the parking space since it is dependent on the length of the robot. With the enlarged parking space, the robot can easily perform a complete parking between the parking lot boundaries. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The main plan of the team is to enable the robot extender during the vehicle check time since this is the time period where the dimensions of the robot will be measured. This method is still activated until the round starts, wherein the robot will be aligned to its starting position while still having its extender enabled. This therefore will create an enlarged parking space. When the program is played and when the robot marks their first move, the robot will disable the extender. With the disabled extender, the robot will then finish the three rounds using its shortened length. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The robot extender is controlled by two (2) SPIKE™ Medium Motors which are powered by another SPIKE™ Large Hub, which will be referenced as a sub hub. The team wasn't able to make these motors powered by the main hub since all of its ports were already used.
+
+### 4.2. Rotating Camera & Distance Sensor
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to maximize the functionality of the camera and distance sensor, the robot is equipped with a SPIKE™ Large Motor that allows these sensors to rotate for approximately 135° in both directions starting from the middle. This rotating capability enables these two (2) sensors to capture a wider view of the robot's surroundings, enhancing the robot's ability to detect and navigate through obstacles and the whole game field. The team developed this feature since the limited ports of the SPIKE™ Large Hub cannot provide room for more sensors around the robot. This motor serves as a helpful tool in the detection of the walls, obstacles, and overall surroundings of the robot while it is in the game field.
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/4.0.1.png?">
 
-### 4.2. Side Free Wheels
+### 4.3. Side Free Wheels
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The robot is equipped with medium-size gears on its sides, acting as free wheels, allowing for uninterrupted movements when it is about to encounter a wall at an angle. Normally, the robot will be stuck or interrupted when a wall is approached diagonally. However, these free wheels enable the robot to glide smoothly along the surface of the wall, perfectly aligning itself to the wall. This design minimizes the possible disruptions in movement and enables the robot to adjust its position precisely. 
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/4.0.2.png?">
 
-### 4.3. Camera LEGO Chassis
+### 4.4. Camera LEGO Chassis
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The OpenMV Cam H7 Plus is securely placed inside the custom-designed LEGO camera mount which was uniquely designed by the team. The mount structures integrate LEGO components, making it easy to attach the camera onto the rotating large motors. This LEGO design maintains its uniformity with the overall robot and allows for convenient attachment of additional external components, such as a color sensor placed behind the camera.
 
