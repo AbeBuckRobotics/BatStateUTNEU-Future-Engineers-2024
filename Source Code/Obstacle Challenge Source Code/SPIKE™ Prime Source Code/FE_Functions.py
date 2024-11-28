@@ -10,7 +10,7 @@ LEFT, RIGHT = const(-90), const(90)
 hub = PrimeHub()
 clock = StopWatch()
 
-hub.system.set_stop_button([Button.BLUETOOTH])
+# hub.system.set_stop_button([Button.BLUETOOTH])
 hub.speaker.volume(100)
 hub.display.off()
 hub.light.off()
@@ -535,7 +535,7 @@ class FutureEngineers:
 
         return RECORDTRAFFICSIGN(streetScanInput, streetScanListValue, streetScanPosition, fixed = streetScanReturn)
 
-    def STREETREAD(self, streetReadDuration, streetReadHeadingTarget, streetReadSpeed, streetReadDistanceTarget, streetReadInput, streetReadListValue, streetReadPosition):
+    def STREETREAD(self, streetReadDuration, streetReadHeadingTarget, streetReadSpeed, streetReadDistanceTarget, streetReadInput, streetReadListValue, streetReadPosition, *, fixed = ""):
         self.street(-20, streetReadHeadingTarget, streetReadSpeed, streetReadSpeed)
 
         streetReadErrorKm, streetReadErrorSummation, streetReadErrorPrevious, streetReadErrorCorrection = 1, 0, 0, 0
@@ -578,10 +578,14 @@ class FutureEngineers:
                 if (streetReadDistance < streetReadDistanceMin):
                     streetReadDistanceMin = streetReadDistance
 
-        if (streetReadDistanceMin < streetReadDistanceTarget):
-            streetReadReturn = "Parking"
+        if (fixed != ""):
+            streetReadReturn = fixed
+        
         else:
-            streetReadReturn = "Normal"
+            if (streetReadDistanceMin < streetReadDistanceTarget):
+                streetReadReturn = "Parking"
+            else:
+                streetReadReturn = "Normal"
 
         return RECORDPARKING(0, 0, streetReadInput, streetReadListValue, streetReadPosition, fixed = streetReadReturn)
 
