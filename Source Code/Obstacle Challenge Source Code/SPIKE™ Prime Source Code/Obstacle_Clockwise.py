@@ -441,7 +441,6 @@ if __name__ == "__main__":
             print(hub.battery.voltage())
 
             recordListValue = [None, None, None, None]
-            # recordListValue = ["Parking", "Green", "Normal", "Red"]
 
             robotLaps = 0
             robotLapsTarget = 10
