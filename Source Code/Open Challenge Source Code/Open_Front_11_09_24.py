@@ -1,32 +1,37 @@
 from FE_Functions import *
 
 def main():
-    hub = PrimeHub()
-    timer = StopWatch()
-
     try:
-        hub.system.set_stop_button([Button.BLUETOOTH])
-        hub.speaker.volume(100)
-        hub.display.off()
-        hub.light.off()
+        print(f"\n\nVoltage: {hub.battery.voltage()}")
 
         driveMotor = Motor(Port.A, Direction.CLOCKWISE, [1], False, 500)
         steerMotor = Motor(Port.B, Direction.COUNTERCLOCKWISE, [1], False, 5)
         visionMotor = Motor(Port.F, Direction.CLOCKWISE, [1], False, 5)
-        colorSensor = ColorSensor(Port.D)
-        distanceSensor = UltrasonicSensor(Port.C)
-
-        steerMotor.control.pid(ki=93464, integral_deadzone= 8, integral_rate=2000)
 
         monke = FutureEngineers(driveMotor, steerMotor, visionMotor)
-
-        driveMotor.control.limits(2000, 2000, 1000)
-        steerMotor.control.limits(2000, 20000, 1000)
-        visionMotor.control.limits(2000, 20000, 1000)
+        monke.start()
+        
+        monke.driveMotor.control.limits(acceleration= 800)
 
         openReady = 3
         proximityLeft = 0
         proximityRight = 0
+        headingTarget = 0
+        robotDirection = 0
+        robotLaps = 0
+
+        robotSpeed = const(800)
+        robotTurn = const(90)
+        proximityTarget = const(500)
+        driveMotorAngleTarget = 1800
+        
+        streetErrorKpMax = const(7)
+        streetErrorKiMax = const(0.000)
+        streetErrorKdMax = const(3)
+
+        turnErrorKpMax = const(2)
+        turnErrorKiMax = const(0.0001)
+        turnErrorKdMax = const(0.3)
 
         hub.imu.reset_heading(0)
 
@@ -55,38 +60,18 @@ def main():
                     
         print(f"Left: {proximityLeft}\tRight: {proximityRight}")
 
-        headingTarget = 0
-        proximityTarget = 900
-        robotDirection = 0
-        robotLaps = 0
-        driveMotorAngleTarget = 1900
-
-        driveMotor.run(2000)
+        robotDirection = monke.streetDetermineTheLine(10, 0, robotSpeed, robotSpeed)
 
         errorSummation = 0
         errorPrevious = 0
         errorCorrection = 0
-        streetErrorKp, streetErrorKi, streetErrorKd = 7, 0.0001, 3
 
-        while True:
-            errorSummation, errorPrevious, errorCorrection = pid(headingTarget - hub.imu.heading(), streetErrorKp, streetErrorKi, streetErrorKd, 1, errorSummation, errorPrevious)
-            steerMotor.run_target(1000, errorCorrection, Stop.HOLD, False)
+        while (distanceSensor.distance() > proximityTarget):
+            streetErrorKp = linearMap(monke.driveMotor.speed(), 0, 1000, 0, streetErrorKpMax)
+            streetErrorKd = linearMap(monke.driveMotor.speed(), 0, 1000, 0, streetErrorKdMax)
+            errorSummation, errorPrevious, errorCorrection = pid(0 - hub.imu.heading(), streetErrorKp, streetErrorKiMax, streetErrorKd, 1, errorSummation, errorPrevious)
 
-            csSat = intHSV(1)
-
-            if (csSat > 30):
-                csHueMax = 0
-
-                while (csSat > 15):
-                    csHueMax = max(intHSV(0), csHueMax)
-                    csSat = intHSV(1)
-
-                if (csHueMax > 190 and csHueMax < 290):
-                    robotDirection = -1
-                else:
-                    robotDirection = 1
-
-                break
+            monke.move(robotSpeed, errorCorrection)
 
         print(f"Direction: {robotDirection}")
         driveMotorAnglePrevious = driveMotor.angle()
@@ -101,15 +86,18 @@ def main():
                 errorCorrection = 0
 
                 while (distanceSensor.distance() > proximityTarget or driveMotorAngleDeterminator):
-                    errorSummation, errorPrevious, errorCorrection = pid(headingTarget - hub.imu.heading(), streetErrorKp, streetErrorKi, streetErrorKd, 1, errorSummation, errorPrevious)
+                    streetErrorKp = linearMap(monke.driveMotor.speed(), 0, 1000, 0, streetErrorKpMax)
+                    streetErrorKd = linearMap(monke.driveMotor.speed(), 0, 1000, 0, streetErrorKdMax)
+                    errorSummation, errorPrevious, errorCorrection = pid(headingTarget - hub.imu.heading(), streetErrorKp, streetErrorKiMax, streetErrorKd, 1, errorSummation, errorPrevious)
                     visionMotor.track_target(headingTarget - hub.imu.heading() + visionMotorAngleTarget)
-                    steerMotor.run_target(1000, errorCorrection, Stop.HOLD, False)
 
                     if ((driveMotor.angle() - driveMotorAnglePrevious) > driveMotorAngleTarget - 250):
                         visionMotorAngleTarget = 0
                     if ((driveMotor.angle() - driveMotorAnglePrevious) > driveMotorAngleTarget):
                         hub.speaker.beep(500)
                         driveMotorAngleDeterminator = False
+
+                    monke.move(robotSpeed, errorCorrection)
 
                 driveMotorAngleTarget = 2300
 
@@ -120,36 +108,44 @@ def main():
             errorPrevious = 0
             errorCorrection = 0
 
-            while (abs(hub.imu.heading()) < abs(headingTarget) + 90):
+            while (abs(hub.imu.heading()) < abs(headingTarget) + robotTurn):
+                turnErrorKp = linearMap(monke.driveMotor.speed(), 0, 1000, 0, turnErrorKpMax)
+                turnErrorKd = linearMap(monke.driveMotor.speed(), 0, 1000, 0, turnErrorKdMax)
                 vmCorrection = headingTarget - hub.imu.heading()
-                errorSummation, errorPrevious, errorCorrection = pid(headingTarget + 90 * robotDirection - hub.imu.heading(), 2, 0.0001, 0.3, 1, errorSummation, errorPrevious)
+                errorSummation, errorPrevious, errorCorrection = pid(headingTarget + robotTurn * robotDirection - hub.imu.heading(), turnErrorKp, turnErrorKiMax, turnErrorKd, 1, errorSummation, errorPrevious)
                 
-                errorCorrection = min(errorCorrection, 30) if (errorCorrection > 0) else max(errorCorrection, -30)
-                steerMotor.run_target(1000, errorCorrection, Stop.HOLD, False)
+                errorCorrection = min(errorCorrection, 40) if (errorCorrection > 0) else max(errorCorrection, -40)
                 visionMotor.track_target(vmCorrection)
+
+                monke.move(robotSpeed, errorCorrection)
 
             robotLaps += 0.25
             headingTarget += 90 * robotDirection
 
-            if (robotDirection < 0):
-                headingTarget += 0
+            if (robotDirection > 0):
+                headingTarget += -0.3
             else:
-                headingTarget += 0.3
+                headingTarget -= 0.4
 
         errorSummation = 0
         errorPrevious = 0
         errorCorrection = 0
         driveMotorAnglePrevious = driveMotor.angle()
 
-        while (driveMotor.angle() < driveMotorAnglePrevious + 800):
-            errorSummation, errorPrevious, errorCorrection = pid(headingTarget - hub.imu.heading(), streetErrorKp, streetErrorKi, streetErrorKd, 1, errorSummation, errorPrevious)
-            visionMotor.track_target(headingTarget - hub.imu.heading() + visionMotorAngleTarget)
-            steerMotor.run_target(1000, errorCorrection, Stop.HOLD, False)
+        while (driveMotor.angle() < driveMotorAnglePrevious + 500 or distanceSensor.distance() > 1200):
+            streetErrorKp = linearMap(monke.driveMotor.speed(), 0, 1000, 0, streetErrorKpMax)
+            streetErrorKd = linearMap(monke.driveMotor.speed(), 0, 1000, 0, streetErrorKdMax)
+            errorSummation, errorPrevious, errorCorrection = pid(headingTarget - hub.imu.heading(), streetErrorKp, streetErrorKiMax, streetErrorKd, 1, errorSummation, errorPrevious)
+            visionMotor.track_target(headingTarget - hub.imu.heading())
+            
+            monke.move(robotSpeed, errorCorrection)
 
-        driveMotor.hold()
+        monke.HOLD(500)
 
     finally:
-        print(f"\nTime: {timer.time()}")
+        print(f"\nTime: {clock.time()}")
 
 if __name__ == "__main__":
     main()
+
+
