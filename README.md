@@ -57,9 +57,10 @@
     * [3.2.5. Third Lap Continuation](#325-third-lap-continuation)
 * [4. Engineering Factor](#4-engineering-factor)
   * [4.1. Robot Extender](#41-robot-extender)
-  * [4.2. Rotating Camera & Distance Sensor](#42-rotating-camera--distance-sensor)
-  * [4.3. Side Free Wheels](#43-side-free-wheels)
-  * [4.4. Camera LEGO Chassis](#44-camera-lego-chassis)
+  * [4.2. Starting Button Mechanism](#42-starting-button-mechanism)
+  * [4.3. Rotating Camera & Distance Sensor](#43-rotating-camera--distance-sensor)
+  * [4.4. Side Free Wheels](#44-side-free-wheels)
+  * [4.5. Camera LEGO Chassis](#45-camera-lego-chassis)
 * [5. Recommendations](#5-recommendations)
   * [5.1. Mobility Management Recommendations](#51-mobility-management-recommendations)
   * [5.2. Power and Sense Management Rcommendations](#52-power-and-sense-management-recommendations)
@@ -216,7 +217,7 @@ In the following images are the pictures of both members from the Future Enginee
 
 ### 2.2.5. Additional Information
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Both the SPIKE™ Distance Sensor and OpenMV Cam H7 Plus are mounted to a SPIKE™ Large Motor. For more information, visit [<i>4.2. Rotating Camera & Distance Sensor</i>](#42-rotating-camera--distance-sensor) in [<i>Chapter 4: Engineering Factor</i>](#4-engineering-factor).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Both the SPIKE™ Distance Sensor and OpenMV Cam H7 Plus are mounted to a SPIKE™ Large Motor. For more information, visit [<i>4.3. Rotating Camera & Distance Sensor</i>](#43-rotating-camera--distance-sensor) in [<i>Chapter 4: Engineering Factor</i>](#4-engineering-factor).
 
 ***
 
@@ -391,19 +392,29 @@ Here is a Youtube video showcasing the actual robot doing the illustration above
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/4.0.1.png?">
 
-### 4.2. Rotating Camera & Distance Sensor
+### 4.2. Starting Button Mechanism
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Only one start button is allowed to start the whole program for the robot, as what the team encountered during the test run in the International rounds and is also mentioned in the rule 9.11 in the rulebook. The BSU ISpartan Team’s robot utilizes two (2) hubs, a main hub and a sub hub, each having their own starting buttons. So in order to address this problem, the team have come up with the plan to create a button that will mechanically press these two start button.
+
+<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/4.0.5.png?">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After a long brainstorming, the starting button mechanism mechanically press the two button simultaneously. With this created part, the robot can now finally start by pressing just one button.
+
+<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/4.0.6.png?">
+
+### 4.3. Rotating Camera & Distance Sensor
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to maximize the functionality of the camera and distance sensor, the robot is equipped with a SPIKE™ Large Motor that allows these sensors to rotate for approximately 135° in both directions starting from the middle. This rotating capability enables these two (2) sensors to capture a wider view of the robot's surroundings, enhancing the robot's ability to detect and navigate through obstacles and the whole game field. The team developed this feature since the limited ports of the SPIKE™ Large Hub cannot provide room for more sensors around the robot. This motor serves as a helpful tool in the detection of the walls, obstacles, and overall surroundings of the robot while it is in the game field.
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/4.0.2.png?">
 
-### 4.3. Side Free Wheels
+### 4.4. Side Free Wheels
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The robot is equipped with medium-size gears on its sides, acting as free wheels, allowing for uninterrupted movements when it is about to encounter a wall at an angle. Normally, the robot will be stuck or interrupted when a wall is approached diagonally. However, these free wheels enable the robot to glide smoothly along the surface of the wall, perfectly aligning itself to the wall. This design minimizes the possible disruptions in movement and enables the robot to adjust its position precisely. 
 
 <img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Discussion%20Images/4.0.3.png?">
 
-### 4.4. Camera LEGO Chassis
+### 4.5. Camera LEGO Chassis
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The OpenMV Cam H7 Plus is securely placed inside the custom-designed LEGO camera mount which was uniquely designed by the team. The mount structures integrate LEGO components, making it easy to attach the camera onto the rotating large motors. This LEGO design maintains its uniformity with the overall robot and allows for convenient attachment of additional external components, such as a color sensor placed behind the camera.
 
