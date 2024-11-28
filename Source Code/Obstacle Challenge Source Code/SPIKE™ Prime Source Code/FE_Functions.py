@@ -1,6 +1,6 @@
 from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import ColorSensor, Motor, UltrasonicSensor
-from pybricks.parameters import Axis, Button, Color, Direction, Icon, Port, Side, Stop
+from pybricks.parameters import Button, Color, Direction, Icon, Port, Side, Stop
 from pybricks.tools import StopWatch, wait
 from micropython import const
 from pupremote_hub import PUPRemoteHub
@@ -121,7 +121,7 @@ def RECORDTRAFFICSIGN(rtsInput, rtsListValue, rtsPosition, *, fixed = ""):
     if (rtsInput == None):
         rtsTrafficSign = (getTrafficSign() if (fixed == "") else fixed)
         rtsListValue.append(rtsTrafficSign)
-        print(f"{rtsTrafficSign[1]} {rtsPosition}{rtsTrafficSign[0]}", end = (" " if (rtsPosition != "f") else "\n"))
+        print(f"{rtsTrafficSign[1]} {rtsPosition}{rtsTrafficSign[0]}", end = (" " if (rtsPosition != "f") else "\n\n"))
 
         return rtsTrafficSign
 
@@ -133,8 +133,6 @@ class FutureEngineers:
         self.driveMotor = driveMotor
         self.steerMotor = steerMotor
         self.visionMotor = visionMotor
-
-        self.errorCounter = 0
 
         self.forwardStreetErrorKp = const(3)
         self.forwardStreetErrorKd = const(1.5)
@@ -152,7 +150,7 @@ class FutureEngineers:
         self.forwardStallTorque = const(250)
         self.backwardStallTorque = const(300)
         self.forwardStallSpeed = const(150)
-        self.backwardStallSpeed = const(0.6)
+        self.backwardStallSpeed = const(0.7)
 
         self.forwardRightIncrement = const(-7)
         self.forwardLeftIncrement = const(10)
@@ -167,11 +165,12 @@ class FutureEngineers:
 
         self.steerMotor.control.pid(ki = 93464, integral_deadzone = 8, integral_rate = 2000)
 
-    def errorCheck(self):
-        pass
-
-        # di pa tapos
-
+    def start(self):
+        if (self.visionMotor.angle() > 180):
+            self.visionMotor.reset_angle(self.visionMotor.angle() - 360)
+        elif (self.visionMotor.angle() < -180):
+            self.visionMotor.reset_angle(self.visionMotor.angle() + 360)
+    
     def look(self, lookAngle, lookBool):
         self.visionMotor.run_target(1000, lookAngle, Stop.HOLD, lookBool)
 
@@ -209,23 +208,24 @@ class FutureEngineers:
         wait(700)
         end
 
-    def finishHold(self, robotLaps, robotLapsTarget):
-        if (robotLaps == robotLapsTarget):
-            self.driveMotor.control.limits(speed = 10, torque = 1)
+    def FINISHINGHOLD(self, finishingHoldSteer = None):
+        self.driveMotor.control.limits(speed = 10, torque = 1)
+        self.driveMotor.hold()
 
-            while (abs(self.driveMotor.speed()) > 1):
-                self.driveMotor.hold()
+        if (finishingHoldSteer == None):
+            finishingHoldSteer = self.steerMotor.angle()
 
-            finishHoldClock = StopWatch()
-            finishHoldClock.reset()
+        while (abs(self.driveMotor.speed()) > 50):
+            pass
 
-            for i in range(5):
-                wait(750)     
-                hub.speaker.beep(500, 250)
+        for i in range(5):
+            self.steerMotor.run_target(1000, finishingHoldSteer, Stop.HOLD, False)
+            wait(750)     
+            hub.speaker.beep(500, 250)
 
-            wait(750)
+        wait(300)
 
-            self.driveMotor.control.limits(speed = 2000, torque = 1000)       
+        self.driveMotor.control.limits(speed = 2000, torque = 1000)       
 
     def motorClose(self):
         self.driveMotor.close()
@@ -383,6 +383,7 @@ class FutureEngineers:
 
         self.driveMotor.control.limits(torque = 1000)
         self.driveMotor.run(streetStallSpeedFinal)
+        self.fastAcceleration(False)
         hub.speaker.beep(500, streetStallDurationFinal)
         self.driveMotor.hold()
         self.driveMotor.reset_angle(0)
@@ -715,7 +716,7 @@ class FutureEngineers:
             if (turnStallHeadingBasis >= turnStallHeadingInitial):
                 turnStallSteerLimit *= -1
 
-                while (self.driveMotor.speed() < turnStallSpeedFinal * self.backwardStallSpeed * 0.3):
+                while (self.driveMotor.speed() < turnStallSpeedFinal * self.backwardStallSpeed * 0.8):
                     turnStallError = turnStallHeadingBasis - hub.imu.heading()
                     turnStallSpeed = linearMap(turnStallError, turnStallHeadingDifference, 0, turnStallSpeedInitial, turnStallSpeedFinal)
                     turnStallErrorSummation, turnStallErrorPrevious, turnStallErrorCorrection = pidNeg(turnStallSteerLimit, turnStallError, self.backwardTurnErrorKp, self.backwardTurnErrorKi, self.backwardTurnErrorKd, turnStallErrorKm, turnStallErrorSummation, turnStallErrorPrevious)
@@ -723,7 +724,7 @@ class FutureEngineers:
                     self.move(turnStallSpeed, turnStallErrorCorrection)
 
             else:
-                while (self.driveMotor.speed() < turnStallSpeedFinal * self.backwardStallSpeed * 0.3):
+                while (self.driveMotor.speed() < turnStallSpeedFinal * self.backwardStallSpeed * 0.8):
                     turnStallError = turnStallHeadingBasis - hub.imu.heading()
                     turnStallSpeed = linearMap(turnStallError, turnStallHeadingDifference, 0, turnStallSpeedInitial, turnStallSpeedFinal)
                     turnStallErrorSummation, turnStallErrorPrevious, turnStallErrorCorrection = pidPos(turnStallSteerLimit, turnStallError, self.backwardTurnErrorKp, self.backwardTurnErrorKi, self.backwardTurnErrorKd, turnStallErrorKm, turnStallErrorSummation, turnStallErrorPrevious)
