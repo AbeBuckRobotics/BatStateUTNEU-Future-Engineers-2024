@@ -8,10 +8,9 @@ def main():
         steerMotor = Motor(Port.B, Direction.COUNTERCLOCKWISE, [1], False, 5)
         visionMotor = Motor(Port.F, Direction.CLOCKWISE, [1], False, 5)
 
-        if (visionMotor.angle() > 180):
-            visionMotor.reset_angle(visionMotor.angle() - 360)
-
         monke = FutureEngineers(driveMotor, steerMotor, visionMotor)
+        monke.start()
+        
         monke.driveMotor.control.limits(acceleration= 800)
 
         openReady = 3
@@ -126,7 +125,7 @@ def main():
             if (robotDirection > 0):
                 headingTarget += -0.3
             else:
-                headingTarget -= 0
+                headingTarget -= 0.4
 
         errorSummation = 0
         errorPrevious = 0
