@@ -1,16 +1,16 @@
 from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import ColorSensor, Motor, UltrasonicSensor
-from pybricks.parameters import Axis, Button, Color, Direction, Icon, Port, Side, Stop
+from pybricks.parameters import Button, Color, Direction, Icon, Port, Side, Stop
 from pybricks.tools import StopWatch, wait
 from micropython import const
 from pupremote_hub import PUPRemoteHub
 
-LEFT, RIGHT = -90, 90
+LEFT, RIGHT = const(-90), const(90)
 
 hub = PrimeHub()
 clock = StopWatch()
 
-hub.system.set_stop_button([Button.BLUETOOTH])
+# hub.system.set_stop_button([Button.BLUETOOTH])
 hub.speaker.volume(100)
 hub.display.off()
 hub.light.off()
@@ -69,8 +69,6 @@ def intHSV(ihsvReturnValue = -1):
 
 def getParking(gpDistanceTarget, gpDuration):
     if (gpDuration == 0):
-        print(distanceSensor.distance(), end = " ")
-
         if (distanceSensor.distance() < gpDistanceTarget):
             return "Parking"
         else:
@@ -85,8 +83,6 @@ def getParking(gpDistanceTarget, gpDuration):
 
             if (gpDistance < gpDistanceMin):
                 gpDistanceMin = gpDistance
-
-        print(gpDistanceMin, end = " ")
 
         if (gpDistanceMin < gpDistanceTarget):
             return "Parking"
@@ -106,20 +102,9 @@ def getTrafficSign():
             return ["Red", gtsRpix]
         else:
             return ["None", 0]
+
     except:
         return ["Error", -1]
-
-
-def RECORDTRAFFICSIGN(rtsInput, rtsListValue, rtsPosition, *, fixed = ""):
-    if (rtsInput == None):
-        rtsTrafficSign = (getTrafficSign() if (fixed == "") else fixed)
-        rtsListValue.append(rtsTrafficSign)
-        print(f"{rtsPosition}{' '.join(list(map(str, rtsTrafficSign)))}", end = (" " if (rtsPosition != "f") else "\n"))
-
-        return rtsTrafficSign
-
-    else:
-        return rtsInput
 
 def RECORDPARKING(rpDistance, rpDuration, rpInput, rpListValue, rpPosition, *, fixed = ""):
     if (rpInput == None):
@@ -132,13 +117,22 @@ def RECORDPARKING(rpDistance, rpDuration, rpInput, rpListValue, rpPosition, *, f
     else:
         return rpInput
 
+def RECORDTRAFFICSIGN(rtsInput, rtsListValue, rtsPosition, *, fixed = ""):
+    if (rtsInput == None):
+        rtsTrafficSign = (getTrafficSign() if (fixed == "") else fixed)
+        rtsListValue.append(rtsTrafficSign)
+        print(f"{rtsTrafficSign[1]} {rtsPosition}{rtsTrafficSign[0]}", end = (" " if (rtsPosition != "f") else "\n\n"))
+
+        return rtsTrafficSign
+
+    else:
+        return rtsInput
+
 class FutureEngineers:
     def __init__(self, driveMotor, steerMotor, visionMotor):
         self.driveMotor = driveMotor
         self.steerMotor = steerMotor
         self.visionMotor = visionMotor
-
-        self.errorCounter = 0
 
         self.forwardStreetErrorKp = const(3)
         self.forwardStreetErrorKd = const(1.5)
@@ -156,7 +150,7 @@ class FutureEngineers:
         self.forwardStallTorque = const(250)
         self.backwardStallTorque = const(300)
         self.forwardStallSpeed = const(150)
-        self.backwardStallSpeed = const(0.65)
+        self.backwardStallSpeed = const(0.7)
 
         self.forwardRightIncrement = const(-7)
         self.forwardLeftIncrement = const(10)
@@ -171,11 +165,12 @@ class FutureEngineers:
 
         self.steerMotor.control.pid(ki = 93464, integral_deadzone = 8, integral_rate = 2000)
 
-    def errorCheck(self):
-        pass
-
-        # di pa tapos
-
+    def start(self):
+        if (self.visionMotor.angle() > 180):
+            self.visionMotor.reset_angle(self.visionMotor.angle() - 360)
+        elif (self.visionMotor.angle() < -180):
+            self.visionMotor.reset_angle(self.visionMotor.angle() + 360)
+    
     def look(self, lookAngle, lookBool):
         self.visionMotor.run_target(1000, lookAngle, Stop.HOLD, lookBool)
 
@@ -213,34 +208,75 @@ class FutureEngineers:
         wait(700)
         end
 
+    def FINISHINGHOLD(self, finishingHoldSteer = None):
+        self.driveMotor.control.limits(speed = 10, torque = 1)
+        self.driveMotor.hold()
+
+        if (finishingHoldSteer == None):
+            finishingHoldSteer = self.steerMotor.angle()
+
+        while (abs(self.driveMotor.speed()) > 50):
+            pass
+
+        for i in range(5):
+            self.steerMotor.run_target(1000, finishingHoldSteer, Stop.HOLD, False)
+            wait(750)     
+            hub.speaker.beep(500, 250)
+
+        wait(300)
+
+        self.driveMotor.control.limits(speed = 2000, torque = 1000)       
+
     def motorClose(self):
         self.driveMotor.close()
         self.steerMotor.close()
         self.visionMotor.close()
 
     def CAMERASCAN(self, cameraScanAngleInitial, cameraScanAngleFinal, cameraScanSpeed, cameraScanInput, cameraScanListValue, cameraScanPosition):
-        cameraScanRecord = []
+        if (cameraScanInput == None):
+            cameraScanReturn, cameraScanRecord, cameraScanGreenCtr, cameraScanRedCtr, cameraScanGreenMax, cameraScanRedMax = "", [], 0, 0, 0, 0
 
-        self.look(cameraScanAngleInitial, True)
+            self.look(cameraScanAngleInitial, True)
 
-        if (cameraScanAngleFinal > cameraScanAngleInitial):
-            while (self.visionMotor.angle() < (cameraScanAngleFinal - 2)):
-                self.visionMotor.run_target(cameraScanSpeed, cameraScanAngleFinal, Stop.HOLD, False)
-                cameraScanRecord.append(getTrafficSign())
-                hub.speaker.beep(500, 10)
+            if (cameraScanAngleFinal > cameraScanAngleInitial):
+                while (self.visionMotor.angle() < (cameraScanAngleFinal - 2)):
+                    self.visionMotor.run_target(cameraScanSpeed, cameraScanAngleFinal, Stop.HOLD, False)
+                    cameraScanRecord.append(getTrafficSign())
+                    hub.speaker.beep(500, 10)
+
+            else:
+                while (self.visionMotor.angle() > (cameraScanAngleFinal + 2)):
+                    self.visionMotor.run_target(cameraScanSpeed, cameraScanAngleFinal, Stop.HOLD, False)
+                    cameraScanRecord.append(getTrafficSign())
+                    hub.speaker.beep(500, 10)
+
+            for _ in range(cameraScanRecord.count(["None", 0])):
+                cameraScanRecord.remove(["None", 0])
+            
+            for i in range(len(cameraScanRecord)):
+                x, y = cameraScanRecord[i]
+
+                if (x == "Green"):
+                    cameraScanGreenCtr += 1
+                    if (y > cameraScanGreenMax):
+                        cameraScanGreenMax = y
+
+                elif (x == "Red"):
+                    cameraScanRedCtr += 1
+                    if (y > cameraScanRedMax):
+                        cameraScanRedMax = y
+
+            if (cameraScanGreenCtr > cameraScanRedCtr):
+                cameraScanReturn = ["Green", cameraScanGreenMax]
+            elif (cameraScanRedCtr > cameraScanGreenCtr):
+                cameraScanReturn = ["Red", cameraScanRedMax]
+            else:
+                cameraScanReturn = ["None", 0]
+
+            return RECORDTRAFFICSIGN(cameraScanInput, cameraScanListValue, cameraScanPosition, fixed = cameraScanReturn)
 
         else:
-            while (self.visionMotor.angle() > (cameraScanAngleFinal + 2)):
-                self.visionMotor.run_target(cameraScanSpeed, cameraScanAngleFinal, Stop.HOLD, False)
-                cameraScanRecord.append(getTrafficSign())
-                hub.speaker.beep(500, 10)
-
-        for _ in range(cameraScanRecord.count(["None", 0])):
-            cameraScanRecord.remove(["None", 0])
-
-        cameraScanReturn = (max(cameraScanRecord) if (len(cameraScanRecord) != 0) else ["None", 0])
-
-        return RECORDTRAFFICSIGN(cameraScanInput, cameraScanListValue, cameraScanPosition, fixed = cameraScanReturn)
+            return cameraScanInput
 
     def street(self, streetDuration, streetHeadingTarget, streetSpeedInitial, streetSpeedFinal):
         streetSpeed, streetErrorKm, streetErrorSummation, streetErrorPrevious, streetErrorCorrection = 0, 1, 0, 0, 0
@@ -259,7 +295,6 @@ class FutureEngineers:
                     streetErrorSummation, streetErrorPrevious, streetErrorCorrection = pid((streetHeadingTarget - hub.imu.heading()), streetErrorKp, self.streetErrorKi, streetErrorKd, streetErrorKm, streetErrorSummation, streetErrorPrevious)
                     
                     self.move(streetSpeed, streetErrorCorrection)
-                    # print(hub.imu.heading(), "\t", self.driveMotor.speed())
                     
             else:
                 streetSpeedInitial *= -1
@@ -273,7 +308,6 @@ class FutureEngineers:
                     streetErrorSummation, streetErrorPrevious, streetErrorCorrection = pid((streetHeadingTarget - hub.imu.heading()), streetErrorKp, self.streetErrorKi, streetErrorKd, streetErrorKm, streetErrorSummation, streetErrorPrevious)
                     
                     self.move(streetSpeed, streetErrorCorrection)
-                    # print(hub.imu.heading(), "\t", self.driveMotor.speed())
 
         else:
             if (streetDuration > 0):
@@ -338,7 +372,7 @@ class FutureEngineers:
             streetStallSpeedFinal *= -1
             streetStallErrorKm *= -1
 
-            self.driveMotor.control.limits(torque = 300)
+            self.driveMotor.control.limits(torque = self.backwardStallTorque)
 
             while (self.driveMotor.speed() < streetStallSpeedFinal * self.backwardStallSpeed):
                 streetStallErrorKp = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.backwardStreetErrorKp)
@@ -349,6 +383,7 @@ class FutureEngineers:
 
         self.driveMotor.control.limits(torque = 1000)
         self.driveMotor.run(streetStallSpeedFinal)
+        self.fastAcceleration(False)
         hub.speaker.beep(500, streetStallDurationFinal)
         self.driveMotor.hold()
         self.driveMotor.reset_angle(0)
@@ -360,83 +395,25 @@ class FutureEngineers:
         self.street(streetLineDuration, streetLineHeadingTarget, streetLineSpeedInitial, streetLineSpeedFinal)
         hub.speaker.beep(500, 10)
 
-        if (streetLineDuration > 0):
-            while (intHSV(1) < 50):
-                streetLineErrorKp = linearMap(self.driveMotor.speed(), 0, 1000, 0, self.forwardStreetErrorKp)
-                streetLineErrorKd = linearMap(self.driveMotor.speed(), 0, 1000, 0, self.forwardStreetErrorKd)
-                streetLineErrorSummation, streetLineErrorPrevious, streetLineErrorCorrection = pid((streetLineHeadingTarget - hub.imu.heading()), streetLineErrorKp, self.streetErrorKi, streetLineErrorKd, streetLineErrorKm, streetLineErrorSummation, streetLineErrorPrevious)
+        streetLineSpeedMax, streetLineErrorKpMax, streetLineErrorKdMax = 1000, 0, 0
 
-                self.move(streetLineSpeedFinal, streetLineErrorCorrection)
+        if (streetLineDuration > 0):
+            streetLineErrorKpMax = self.forwardStreetErrorKp
+            streetLineErrorKdMax = self.forwardStreetErrorKd
 
         else:
             streetLineSpeedFinal *= -1
+            streetLineSpeedMax *= -1
             streetLineErrorKm *= -1
+            streetLineErrorKpMax = self.backwardStreetErrorKp
+            streetLineErrorKdMax = self.backwardStreetErrorKd
 
-            while (intHSV(1) < 50):
-                streetLineErrorKp = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.backwardStreetErrorKp)
-                streetLineErrorKd = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.backwardStreetErrorKd)
-                streetLineErrorSummation, streetLineErrorPrevious, streetLineErrorCorrection = pid((streetLineHeadingTarget - hub.imu.heading()), streetLineErrorKp, self.streetErrorKi, streetLineErrorKd, streetLineErrorKm, streetLineErrorSummation, streetLineErrorPrevious)
+        while (intHSV(1) < 30):
+            streetLineErrorKp = linearMap(self.driveMotor.speed(), 0, streetLineSpeedMax, 0, streetLineErrorKpMax)
+            streetLineErrorKd = linearMap(self.driveMotor.speed(), 0, streetLineSpeedMax, 0, streetLineErrorKdMax)
+            streetLineErrorSummation, streetLineErrorPrevious, streetLineErrorCorrection = pid((streetLineHeadingTarget - hub.imu.heading()), streetLineErrorKp, self.streetErrorKi, streetLineErrorKd, streetLineErrorKm, streetLineErrorSummation, streetLineErrorPrevious)
 
-                self.move(streetLineSpeedFinal, streetLineErrorCorrection)
-
-    def STREETDETECT(self, streetDetectDuration, streetDetectHeadingTarget, streetDetectSpeed, streetDetectInput, streetDetectListValue, streetDetectPosition):
-        streetDetectErrorKm, streetDetectErrorSummation, streetDetectErrorPrevious, streetDetectErrorCorrection = 1, 0, 0, 0
-
-        streetDetectMotorAngleStart = self.driveMotor.angle()
-        streetDetectMotorAngleTarget = streetDetectMotorAngleStart + streetDetectDuration
-
-        streetDetectReturn, streetDetectRecord, streetDetectGreenSum, streetDetectRedSum, streetDetectGreenMax, streetDetectRedMax = "", [], 0, 0, 0, 0
-
-        if (streetDetectDuration > 0):
-            while (self.driveMotor.angle() < streetDetectMotorAngleTarget):
-                streetDetectRecord.append(getTrafficSign())
-                hub.speaker.beep(500, 10)
-
-                streetDetectErrorKp = linearMap(self.driveMotor.speed(), 0, 1000, 0, self.forwardStreetErrorKp)
-                streetDetectErrorKd = linearMap(self.driveMotor.speed(), 0, 1000, 0, self.forwardStreetErrorKd)
-                streetDetectErrorSummation, streetDetectErrorPrevious, streetDetectErrorCorrection = pid((streetDetectHeadingTarget - hub.imu.heading()), streetDetectErrorKp, self.streetErrorKi, streetDetectErrorKd, streetDetectErrorKm, streetDetectErrorSummation, streetDetectErrorPrevious)
-
-                self.move(streetDetectSpeed, streetDetectErrorCorrection)
-
-        else:
-            streetDetectSpeed *= -1
-            streetDetectErrorKm *= -1
-
-            while (self.driveMotor.angle() > streetDetectMotorAngleTarget):
-                streetDetectRecord.append(getTrafficSign())
-                hub.speaker.beep(500, 10)
-
-                streetDetectErrorKp = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.backwardStreetErrorKp)
-                streetDetectErrorKd = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.backwardStreetErrorKd)
-                streetDetectErrorSummation, streetDetectErrorPrevious, streetDetectErrorCorrection = pid((streetDetectHeadingTarget - hub.imu.heading()), streetDetectErrorKp, self.streetErrorKi, streetDetectErrorKd, streetDetectErrorKm, streetDetectErrorSummation, streetDetectErrorPrevious)
-
-                self.move(streetDetectSpeed, streetDetectErrorCorrection)
-        
-        for _ in range(streetDetectRecord.count(["None", 0])):
-            streetDetectRecord.remove(["None", 0])
-        
-        for i in range(len(streetDetectRecord)):
-            x = streetDetectRecord[i][0]
-            y = streetDetectRecord[i][1]
-
-            if (x == "Green"):
-                streetDetectGreenSum += 1
-                if (y > streetDetectGreenMax):
-                    streetDetectGreenMax = y
-
-            elif (x == "Red"):
-                streetDetectRedSum += 1
-                if (y > streetDetectRedMax):
-                    streetDetectRedMax = y
-
-        if (streetDetectGreenSum == 0 and streetDetectRedSum == 0):
-            streetDetectReturn = ["None", 0]
-        elif (streetDetectGreenSum > streetDetectRedSum):
-            streetDetectReturn = ["Green", streetDetectGreenMax]
-        else:
-            streetDetectReturn = ["Red", streetDetectRedMax]
-
-        return RECORDTRAFFICSIGN(streetDetectInput, streetDetectListValue, streetDetectPosition, fixed = streetDetectReturn)
+            self.move(streetLineSpeedFinal, streetLineErrorCorrection)
 
     def streetDetermineIfLine(self, streetIfLineDuration, streetIfLineHeadingTarget, streetIfLineSpeedInitial, streetIfLineSpeedFinal):
         streetIfLineSpeed, streetIfLineErrorKm, streetIfLineErrorSummation, streetIfLineErrorPrevious, streetIfLineErrorCorrection = 0, 1, 0, 0, 0
@@ -467,8 +444,8 @@ class FutureEngineers:
             
             while (self.driveMotor.angle() > streetIfLineMotorAngleTarget):
                 streetIfLineSpeed = linearMap(self.driveMotor.angle(), streetIfLineMotorAngleStart, streetIfLineMotorAngleTarget, streetIfLineSpeedInitial, streetIfLineSpeedFinal)
-                streetIfLineErrorKp = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.forwardStreetErrorKp)
-                streetIfLineErrorKd = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.forwardStreetErrorKd)
+                streetIfLineErrorKp = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.backwardStreetErrorKp)
+                streetIfLineErrorKd = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.backwardStreetErrorKd)
                 streetIfLineErrorSummation, streetIfLineErrorPrevious, streetIfLineErrorCorrection = pid((streetIfLineHeadingTarget - hub.imu.heading()), streetIfLineErrorKp, self.streetErrorKi, streetIfLineErrorKd, streetIfLineErrorKm, streetIfLineErrorSummation, streetIfLineErrorPrevious)
 
                 self.move(streetIfLineSpeed, streetIfLineErrorCorrection)
@@ -484,28 +461,9 @@ class FutureEngineers:
             return "No Line"
 
     def streetDetermineTheLine(self, streetTheLineDuration, streetTheLineHeadingTarget, streetTheLineSpeedInitial, streetTheLineSpeedFinal):
-        streetTheLineErrorKm, streetTheLineErrorSummation, streetTheLineErrorPrevious, streetTheLineErrorCorrection = 1, 0, 0, 0
-
-        self.street(streetTheLineDuration, streetTheLineHeadingTarget, streetTheLineSpeedInitial, streetTheLineSpeedFinal)
+        self.streetLine(streetTheLineDuration, streetTheLineHeadingTarget, streetTheLineSpeedInitial, streetTheLineSpeedFinal)
 
         streetTheLineHueMax, streetTheLineHue = 0, 0
-
-        if (streetTheLineDuration > 0):
-            streetTheLineErrorKpMax = self.forwardStreetErrorKp
-            streetTheLineErrorKdMax = self.forwardStreetErrorKd
-
-        else:
-            streetTheLineErrorKm *= -1
-            streetTheLineSpeedFinal *= -1
-            streetTheLineErrorKpMax = self.backwardStreetErrorKp
-            streetTheLineErrorKdMax = self.backwardStreetErrorKd
-
-        while (intHSV(1) < 30):
-            streetTheLineErrorKp = linearMap(self.driveMotor.speed(), 0, 1000, 0, streetTheLineErrorKpMax)
-            streetTheLineErrorKd = linearMap(self.driveMotor.speed(), 0, 1000, 0, streetTheLineErrorKdMax)
-            streetTheLineErrorSummation, streetTheLineErrorPrevious, streetTheLineErrorCorrection = pid((streetTheLineHeadingTarget - hub.imu.heading()), streetTheLineErrorKp, self.streetErrorKi, streetTheLineErrorKd, streetTheLineErrorKm, streetTheLineErrorSummation, streetTheLineErrorPrevious)
-            
-            self.move(streetTheLineSpeedFinal, streetTheLineErrorCorrection)
 
         while (intHSV(1) > 15):
             streetTheLineHue = intHSV(0)
@@ -518,6 +476,118 @@ class FutureEngineers:
             return -1
         else:
             return 1
+
+    def STREETSCAN(self, streetScanDuration, streetScanHeadingTarget, streetScanSpeed, streetScanInput, streetScanListValue, streetScanPosition):
+        streetScanErrorKm, streetScanErrorSummation, streetScanErrorPrevious, streetScanErrorCorrection = 1, 0, 0, 0
+
+        streetScanMotorAngleStart = self.driveMotor.angle()
+        streetScanMotorAngleTarget = streetScanMotorAngleStart + streetScanDuration
+
+        streetScanReturn, streetScanRecord, streetScanGreenCtr, streetScanRedCtr, streetScanGreenMax, streetScanRedMax = "", [], 0, 0, 0, 0
+
+        if (streetScanDuration > 0):
+            while (self.driveMotor.angle() < streetScanMotorAngleTarget):
+                streetScanErrorKp = linearMap(self.driveMotor.speed(), 0, 1000, 0, self.forwardStreetErrorKp)
+                streetScanErrorKd = linearMap(self.driveMotor.speed(), 0, 1000, 0, self.forwardStreetErrorKd)
+                streetScanErrorSummation, streetScanErrorPrevious, streetScanErrorCorrection = pid((streetScanHeadingTarget - hub.imu.heading()), streetScanErrorKp, self.streetErrorKi, streetScanErrorKd, streetScanErrorKm, streetScanErrorSummation, streetScanErrorPrevious)
+
+                self.move(streetScanSpeed, streetScanErrorCorrection)
+
+                streetScanRecord.append(getTrafficSign())
+                hub.speaker.beep(500, 10)
+
+        else:
+            streetScanSpeed *= -1
+            streetScanErrorKm *= -1
+
+            while (self.driveMotor.angle() > streetScanMotorAngleTarget):
+                streetScanErrorKp = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.backwardStreetErrorKp)
+                streetScanErrorKd = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.backwardStreetErrorKd)
+                streetScanErrorSummation, streetScanErrorPrevious, streetScanErrorCorrection = pid((streetScanHeadingTarget - hub.imu.heading()), streetScanErrorKp, self.streetErrorKi, streetScanErrorKd, streetScanErrorKm, streetScanErrorSummation, streetScanErrorPrevious)
+
+                self.move(streetScanSpeed, streetScanErrorCorrection)
+
+                streetScanRecord.append(getTrafficSign())
+                hub.speaker.beep(500, 10)
+        
+        for _ in range(streetScanRecord.count(["None", 0])):
+            streetScanRecord.remove(["None", 0])
+        
+        for i in range(len(streetScanRecord)):
+            x, y = streetScanRecord[i]
+
+            if (x == "Green"):
+                streetScanGreenCtr += 1
+                if (y > streetScanGreenMax):
+                    streetScanGreenMax = y
+
+            elif (x == "Red"):
+                streetScanRedCtr += 1
+                if (y > streetScanRedMax):
+                    streetScanRedMax = y
+
+        if (streetScanGreenCtr > streetScanRedCtr):
+            streetScanReturn = ["Green", streetScanGreenMax]
+        elif (streetScanRedCtr > streetScanGreenCtr):
+            streetScanReturn = ["Red", streetScanRedMax]
+        else:
+            streetScanReturn = ["None", 0]
+
+        return RECORDTRAFFICSIGN(streetScanInput, streetScanListValue, streetScanPosition, fixed = streetScanReturn)
+
+    def STREETREAD(self, streetReadDuration, streetReadHeadingTarget, streetReadSpeed, streetReadDistanceTarget, streetReadInput, streetReadListValue, streetReadPosition, *, fixed = ""):
+        self.street(-20, streetReadHeadingTarget, streetReadSpeed, streetReadSpeed)
+
+        streetReadErrorKm, streetReadErrorSummation, streetReadErrorPrevious, streetReadErrorCorrection = 1, 0, 0, 0
+
+        streetReadMotorAngleStart = self.driveMotor.angle()
+        streetReadMotorAngleTarget = streetReadMotorAngleStart + streetReadDuration
+
+        streetReadReturn, streetReadDistanceMin, streetReadDistance = "", 2000, 0
+
+        if (streetReadDuration > 0):
+            streetReadDuration -= 20
+
+            while (self.driveMotor.angle() < streetReadMotorAngleTarget):
+                streetReadErrorKp = linearMap(self.driveMotor.speed(), 0, 1000, 0, self.forwardStreetErrorKp)
+                streetReadErrorKd = linearMap(self.driveMotor.speed(), 0, 1000, 0, self.forwardStreetErrorKd)
+                streetReadErrorSummation, streetReadErrorPrevious, streetReadErrorCorrection = pid((streetReadHeadingTarget - hub.imu.heading()), streetReadErrorKp, self.streetErrorKi, streetReadErrorKd, streetReadErrorKm, streetReadErrorSummation, streetReadErrorPrevious)
+
+                self.move(streetReadSpeed, streetReadErrorCorrection)
+
+                streetReadDistance = distanceSensor.distance()
+
+                if (streetReadDistance < streetReadDistanceMin):
+                    streetReadDistanceMin = streetReadDistance
+
+        else:
+            streetReadSpeed *= -1
+            streetReadErrorKm *= -1
+
+            streetReadDuration += 20
+
+            while (self.driveMotor.angle() > streetReadMotorAngleTarget):
+                streetReadErrorKp = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.backwardStreetErrorKp)
+                streetReadErrorKd = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.backwardStreetErrorKd)
+                streetReadErrorSummation, streetReadErrorPrevious, streetReadErrorCorrection = pid((streetReadHeadingTarget - hub.imu.heading()), streetReadErrorKp, self.streetErrorKi, streetReadErrorKd, streetReadErrorKm, streetReadErrorSummation, streetReadErrorPrevious)
+
+                self.move(streetReadSpeed, streetReadErrorCorrection)
+
+                streetReadDistance = distanceSensor.distance()
+
+                if (streetReadDistance < streetReadDistanceMin):
+                    streetReadDistanceMin = streetReadDistance
+
+        if (fixed != ""):
+            streetReadReturn = fixed
+        
+        else:
+            if (streetReadDistanceMin < streetReadDistanceTarget):
+                streetReadReturn = "Parking"
+            else:
+                streetReadReturn = "Normal"
+
+        return RECORDPARKING(0, 0, streetReadInput, streetReadListValue, streetReadPosition, fixed = streetReadReturn)
 
     def drive(self, driveDuration, driveSpeedInitial, driveSpeedFinal, driveSteerInitial, driveSteerFinal):
         driveSpeed, driveSteer = 0, 0
@@ -548,7 +618,7 @@ class FutureEngineers:
         self.move(driveLineSpeedFinal * abs(driveLineDuration) / driveLineDuration, driveLineSteerFinal * abs(driveLineDuration) / driveLineDuration)
         hub.speaker.beep(500, 10)
 
-        while (intHSV(1) < 50): 
+        while (intHSV(1) < 35): 
             pass
 
     def turnSemi(self, turnSemiDirection, turnSemiHeadingTarget, turnSemiHeadingBasis, turnSemiSteerLimit, turnSemiSpeedInitial, turnSemiSpeedFinal):
@@ -650,7 +720,7 @@ class FutureEngineers:
             if (turnStallHeadingBasis >= turnStallHeadingInitial):
                 turnStallSteerLimit *= -1
 
-                while (self.driveMotor.speed() < turnStallSpeedFinal * self.backwardStallSpeed * 0.7):
+                while (self.driveMotor.speed() < turnStallSpeedFinal * self.backwardStallSpeed * 0.8):
                     turnStallError = turnStallHeadingBasis - hub.imu.heading()
                     turnStallSpeed = linearMap(turnStallError, turnStallHeadingDifference, 0, turnStallSpeedInitial, turnStallSpeedFinal)
                     turnStallErrorSummation, turnStallErrorPrevious, turnStallErrorCorrection = pidNeg(turnStallSteerLimit, turnStallError, self.backwardTurnErrorKp, self.backwardTurnErrorKi, self.backwardTurnErrorKd, turnStallErrorKm, turnStallErrorSummation, turnStallErrorPrevious)
@@ -658,7 +728,7 @@ class FutureEngineers:
                     self.move(turnStallSpeed, turnStallErrorCorrection)
 
             else:
-                while (self.driveMotor.speed() < turnStallSpeedFinal * self.backwardStallSpeed * 0.7):
+                while (self.driveMotor.speed() < turnStallSpeedFinal * self.backwardStallSpeed * 0.8):
                     turnStallError = turnStallHeadingBasis - hub.imu.heading()
                     turnStallSpeed = linearMap(turnStallError, turnStallHeadingDifference, 0, turnStallSpeedInitial, turnStallSpeedFinal)
                     turnStallErrorSummation, turnStallErrorPrevious, turnStallErrorCorrection = pidPos(turnStallSteerLimit, turnStallError, self.backwardTurnErrorKp, self.backwardTurnErrorKi, self.backwardTurnErrorKd, turnStallErrorKm, turnStallErrorSummation, turnStallErrorPrevious)
@@ -730,12 +800,16 @@ class FutureEngineers:
 def main():
     driveMotor = Motor(Port.A, Direction.CLOCKWISE, [1], False, 500)
     steerMotor = Motor(Port.B, Direction.COUNTERCLOCKWISE, [1], False, 5)
-    visionMotor = Motor(Port.F, Direction.COUNTERCLOCKWISE, [1], False, 5)
+    visionMotor = Motor(Port.F, Direction.CLOCKWISE, [1], False, 5)
 
     monke = FutureEngineers(driveMotor, steerMotor, visionMotor)
-    monke.fastAcceleration(False)
 
-    monke.turnStall(-1, -80, -90, 40, 900, 800, 500)
+    monke.fastAcceleration(False)
+    monke.street(150, 0, 2000, 2000)
+    monke.fastAcceleration(True)
+    monke.street(1000, 0, 2000, 2000)
+    monke.finishHold(12, 12)
+    monke.street(-100, 0, 2000, 2000)
 
 if __name__ == "__main__":
     print("\n\n\n")
