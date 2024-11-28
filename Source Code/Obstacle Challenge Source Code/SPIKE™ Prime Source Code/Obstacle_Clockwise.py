@@ -2,18 +2,18 @@ from FE_Functions import *
 
 def nNormalnGreenfRed(monke):
     monke.fastAcceleration(False)
-    monke.street(150, 0, 1000, 1000)
+    monke.street(230, 0, 1000, 1000)
     monke.look(0, False)
     monke.fastAcceleration(True)
     monke.street(600, -35, 2000, 2000)
     monke.turn(1, -90, 40, 2000, 2000)
     monke.streetLine(1, -90, 2000, 2000)
 
-    monke.turn(1, -150, 40, 2000, 2000)
-    monke.street(180, -150, 2000, 2000)
+    monke.turn(1, -160, 40, 2000, 2000)
+    monke.street(180, -160, 2000, 2000)
     monke.look(RIGHT, False)
     monke.turn(1, -90, 40, 1000, 750)
-    monke.streetStall(10, -90, 850, 800, 100)
+    monke.streetStall(100, -90, 850, 800, 100)
 
 def nRedfRed(monke):
     monke.look(0, False)
@@ -31,10 +31,8 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
     steerMotor = Motor(Port.B, Direction.COUNTERCLOCKWISE, [1], False, 5)
     visionMotor = Motor(Port.F, Direction.CLOCKWISE, [1], False, 5)
 
-    if (visionMotor.angle() > 180):
-        visionMotor.reset_angle(visionMotor.angle() - 360)
-
     monke = FutureEngineers(driveMotor, steerMotor, visionMotor)
+    monke.start()
 
     parking, trafficSign, recordListValue = "", "", []
 
@@ -80,11 +78,10 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
                 monke.look(0, False)
                 monke.fastAcceleration(True)
                 monke.turn(-1, 90, 50, 850, 600)
-                monke.streetStall(-10, 90, 2000, 500, 100)
+                monke.streetStall(-10, 90, 600, 500, 100)
 
                 monke.fastAcceleration(False)
-                monke.streetLine(1, 0, 2000, 2000)
-                monke.fastAcceleration(True)
+                monke.streetLine(200, 0, 600, 700)
                 monke.street(400, 0, 2000, 2000)
 
                 if (recordListInput[3] == None):
@@ -107,7 +104,7 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
 
                     monke.turn(1, 60, 40, 2000, 2000)
                     monke.fastAcceleration(True)
-                    monke.street(100, 60, 2000, 2000)
+                    monke.street(250, 60, 2000, 2000)
                     monke.turn(1, 0, 40, 2000, 2000)
                     monke.streetLine(120, 0, 2000, 2000)
 
@@ -140,7 +137,7 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
                 # nNormal nGreen
 
                 monke.fastAcceleration(True)
-                monke.street(-300, 0, 700, 400)
+                monke.street(-220, 0, 700, 400)
                 monke.HOLD(100)
 
                 monke.fastAcceleration(False)
@@ -152,14 +149,14 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
                 monke.HOLD()
 
                 monke.fastAcceleration(False)
-                monke.streetLine(-100, 100, 850, 600)
+                monke.streetLine(-110, 100, 850, 600)
                 monke.street(-200, 85, 600, 450)
                 monke.HOLD()
 
                 monke.driveMotor.control.limits(acceleration= 800)
                 monke.driveLine(1, 2000, 2000, -5, -5)
                 monke.fastAcceleration(True)
-                monke.drive(550, 2000, 2000, -3, -3)
+                monke.drive(600, 2000, 2000, -3, -3)
 
                 # fast route    nNormal nGreen f?
 
@@ -221,7 +218,7 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
                 else:
                     # nNormal nGreen fNormal 
 
-                    trafficSign = monke.CAMERASCAN(3, 25, 100, recordListInput[3], recordListValue, "f")
+                    trafficSign = monke.CAMERASCAN(3, 35, 100, recordListInput[3], recordListValue, "f")
 
                     if (trafficSign[0] == "Red"): 
                         # nNormal nGreen fNormal fRed
@@ -241,7 +238,7 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
                         monke.driveMotor.control.limits(acceleration= 800)
                         monke.street(-100, 180, 2000, 2000)
                         monke.fastAcceleration(True)
-                        monke.streetStall(-100, 180, 600, 850, 200)
+                        monke.streetStall(-100, 180, 600, 750, 200)
 
                         nNormalnGreenfRed(monke)
 
@@ -274,7 +271,7 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
             # n? nRed
 
             monke.fastAcceleration(True)
-            monke.street(-30, 0, 2000, 2000)
+            monke.street(-100, 0, 2000, 2000)
             monke.look(0, False)
             monke.turn(-1, 90, 40, 900, 750)
             monke.streetStall(-10, 90, 2000, 500, 200)
@@ -305,13 +302,14 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
 
                 if (trafficSign[0] == "Green"):
                     # nParking nRed fNormal fGreen
+                    # nParking nRed fGreen
 
                     monke.look(0, False)
                     monke.turnSemi(1, -60, -70, 40, 2000, 2000)
-                    monke.street(260, -70, 2000, 2000)
+                    monke.street(310, -70, 2000, 2000)
                     monke.look(RIGHT, False)
                     monke.turnSemi(1, 0, 5, 40, 2000, 2000)
-                    monke.streetStall(850, 0, 2000, 2000, 100)
+                    monke.streetStall(1000, 0, 2000, 2000, 100)
 
                 else:
                     # nParking nRed fNormal fRed
@@ -341,6 +339,7 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
                 else:
                     monke.look(RIGHT, False)
                     monke.fastAcceleration(True)
+                    monke.street(100, 0, 2000, 2000)
                     monke.turn(1, -90, 40, 2000, 2000)
 
                     if (robotLaps == robotLapsTarget):
@@ -355,9 +354,9 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
                     parking = monke.STREETREAD(-100, 0, 2000, 1000, recordListInput[2], recordListValue, "f")
                     monke.look(100, False)
                     monke.fastAcceleration(True)
-                    monke.street(-150, 0, 2000, 2000)
+                    monke.street(-120, 0, 2000, 2000)
 
-                    trafficSign = monke.STREETSCAN(-170, 0, 950, recordListInput[3], recordListValue, "f")
+                    trafficSign = monke.STREETSCAN(-200, 0, 950, recordListInput[3], recordListValue, "f")
 
                     if (trafficSign[0] == "Green"):
                         # nNormal nRed f? fGreen
@@ -366,11 +365,11 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
                             # nNormal nRed fParking fGreen
 
                             monke.fastAcceleration(True)
-                            monke.street(-390, 0, 700, 350)
+                            monke.street(-370, 0, 700, 350)
                             monke.HOLD(100)
 
                             monke.fastAcceleration(False)
-                            monke.street(130, 0, 800, 2000)
+                            monke.street(150, 0, 800, 2000)
                             monke.look(0, False)
                             monke.fastAcceleration(True)
                             monke.turn(1, 90, 40, 2000, 2000)
@@ -383,19 +382,19 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
                             # nRed fGreen
 
                             monke.fastAcceleration(True)
-                            monke.street(-150, 0, 400, 300)
+                            monke.street(-200, 0, 400, 300)
                             monke.HOLD(100)
                             
                             monke.fastAcceleration(False)
-                            monke.street(200, 0, 800, 2000)
+                            monke.street(310, 0, 700, 850)
                             monke.look(0, False)
                             monke.fastAcceleration(True)
-                            monke.turn(1, 88, 40, 2000, 2000)
-                            monke.street(650, 80, 2000, 2000)
+                            monke.turn(1, 88, 40, 850, 850)
+                            monke.street(650, 80, 850, 850)
 
-                            monke.street(700, 120, 2000, 2000)
+                            monke.street(700, 120, 850, 900)
                             monke.look(RIGHT, False)
-                            monke.streetStall(200, 90, 2000, 2000, 200)
+                            monke.streetStall(200, 90, 900, 800, 200)
 
                     else:
                         # nNormal nRed fParking fRed
@@ -404,7 +403,7 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
 
                         monke.look(0, False)
                         monke.fastAcceleration(True)
-                        monke.street(-30, 0, 2000, 2000)
+                        monke.street(-100, 0, 2000, 2000)
                         monke.turn(-1, 92, 40, 850, 750)
                         monke.street(-100, 92, 500, 300)
                         monke.HOLD(100)
@@ -412,7 +411,7 @@ def obstacleClockwise(recordListInput, robotLaps, robotLapsTarget = -1):
                         monke.fastAcceleration(False)
                         monke.street(150, 90, 2000, 2000)
                         monke.fastAcceleration(True)
-                        monke.streetLine(650, 90, 2000, 2000)
+                        monke.streetLine(550, 90, 2000, 2000)
 
                         monke.turn(1, 30, 40, 2000, 2000)
                         monke.street(280, 30, 2000, 2000)
@@ -441,7 +440,8 @@ if __name__ == "__main__":
         while True:
             print(hub.battery.voltage())
 
-            recordListValue = [None for x in range(4)]
+            recordListValue = [None, None, None, None]
+            # recordListValue = ["Parking", "Green", "Normal", "Red"]
 
             robotLaps = 0
             robotLapsTarget = 10
