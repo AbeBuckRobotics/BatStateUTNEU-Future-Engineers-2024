@@ -1,5 +1,3 @@
-
-
 from FE_Functions import *
 
 def nNormalnRedfGreen(monke):
