@@ -17,7 +17,7 @@
 
 ### November 29, 2024 (Friday)
 
-* Updated [<i>Source Code</i>](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Source%20Code) to include the latest program for the robot used during the Day 2 Official Runs of the International Competition. With these program, the team achieved the maximum score in both the Open and Obstacle Challenge Rounds.
+* Updated [<i>Source Code</i>](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Source%20Code) to include the latest program for the robot used during the Day 2 Official Runs of the International Competition. With the updated program, the team were among the three (3) teams to achieve the maximum score in both the Open and Obstacle Challenge Rounds.
 
 ### November 28, 2024 (Thursday)
 
