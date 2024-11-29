@@ -20,7 +20,9 @@ def main():
         robotDirection = 0
         robotLaps = 0
 
-        robotSpeed = const(800)
+        # checkpoint
+
+        robotSpeed = const(1000)
         robotTurn = const(90)
         proximityTarget = const(500)
         driveMotorAngleTarget = 1800
@@ -34,6 +36,8 @@ def main():
         turnErrorKdMax = const(0.3)
 
         hub.imu.reset_heading(0)
+
+        wait(500)
 
         while (openReady):
             steerMotor.run_target(1000, 0, Stop.HOLD, False)
@@ -123,16 +127,22 @@ def main():
             headingTarget += 90 * robotDirection
 
             if (robotDirection > 0):
-                headingTarget += -0.3
+                # CLOCKWISE
+                # pos = inner
+                # neg = outer
+                headingTarget += -0.3 
             else:
-                headingTarget -= 0.4
+                # COUNTERCLOCKWISE
+                # pos = inner
+                # neg = outer
+                headingTarget -= 0.55
 
         errorSummation = 0
         errorPrevious = 0
         errorCorrection = 0
         driveMotorAnglePrevious = driveMotor.angle()
 
-        while (driveMotor.angle() < driveMotorAnglePrevious + 500 or distanceSensor.distance() > 1200):
+        while (driveMotor.angle() < driveMotorAnglePrevious + 500 or distanceSensor.distance() > 1300):
             streetErrorKp = linearMap(monke.driveMotor.speed(), 0, 1000, 0, streetErrorKpMax)
             streetErrorKd = linearMap(monke.driveMotor.speed(), 0, 1000, 0, streetErrorKdMax)
             errorSummation, errorPrevious, errorCorrection = pid(headingTarget - hub.imu.heading(), streetErrorKp, streetErrorKiMax, streetErrorKd, 1, errorSummation, errorPrevious)
