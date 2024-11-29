@@ -18,11 +18,12 @@
 ### November 29, 2024 (Friday)
 
 * Updated [<i>Source Code</i>](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Source%20Code) to include the latest program for the robot used during the Day 2 Official Runs of the International Competition. With the updated program, the team were among the three (3) teams to achieve the maximum score in both the Open and Obstacle Challenge Rounds.
+* Added the [<i>Building Instructions for Starting Button Mechanism</i>](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/Starting%20Button%20Mechanism%20Building%20Instructions.pdf) in [<i>Vehicle Building Instructions</i>](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Vehicle%20Building%20Instructions).
 
 ### November 28, 2024 (Thursday)
 
-* Added [<i>4.2. Starting Button Mechanism</i>](#42-starting-button-mechanism) in [<i>Chapter 4: Engineering Factor</i>](#4-engineering-factor). This section details the start button mechanism the team developed for their robot after the Day 1 of the International competition.
 * Updated [<i>Source Code</i>](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Source%20Code) to include the latest program for the robot used during the Day 1 Practice Time of the International Competition. Significant changes were made to the program on Day 1, including the robot's movements and obstacle recognition capabilities.
+* Added [<i>4.2. Starting Button Mechanism</i>](#42-starting-button-mechanism) in [<i>Chapter 4: Engineering Factor</i>](#4-engineering-factor). This section details the start button mechanism the team developed for their robot after the Day 1 of the International competition.
 
 ***
 
@@ -592,9 +593,9 @@ This part contains multiple files displaying the specific step by step instructi
 | ----------------------------------- | ------------------------------- |
 |[![](https://github.com/user-attachments/assets/3f483c1a-727c-46e8-af8a-ecd24eb055ba)](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/OpenMV%20Cam%20H7%20Plus%20Mount.pdf)|[![](https://github.com/user-attachments/assets/e55ab5d4-6b60-45f2-82fc-69319e8e2d15)](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/Distance%20Sensor%20Mount.pdf)|
 
-| Whole Robot - 298 pages             |
-| ----------------------------------- |
-|[<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Virtual%20Model/Isometric_View_Virtual-BSU_Spartan_Team.png?">](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/Whole%20Robot-Part%201_Building%20Instructions.pdf)|
+| Starting Button Mechanism - 51 pages| Whole Robot - 298 pages             |
+| ----------------------------------- | ----------------------------------- |
+|[![](https://github.com/user-attachments/assets/a83b6ab9-6687-4892-b147-a5a17b673538)](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/Starting%20Button%20Mechanism%20Building%20Instructions.pdf#js-repo-pjax-container)|[<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Virtual%20Model/Isometric_View_Virtual-BSU_Spartan_Team.png?">](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/Whole%20Robot-Part%201_Building%20Instructions.pdf)|
 
 ## 7.5. Vehicle Table of Materials
 
