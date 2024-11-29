@@ -10,7 +10,7 @@ LEFT, RIGHT = const(-90), const(90)
 hub = PrimeHub()
 clock = StopWatch()
 
-# hub.system.set_stop_button([Button.BLUETOOTH])
+hub.system.set_stop_button([Button.BLUETOOTH])
 hub.speaker.volume(100)
 hub.display.off()
 hub.light.off()
@@ -357,11 +357,13 @@ class FutureEngineers:
 
         self.street(streetStallDurationInitial, streetStallHeadingTarget, streetStallSpeedInitial, streetStallSpeedFinal)
         hub.speaker.beep(500, 10)
+        streetStallClock = StopWatch()
+        streetStallClock.reset()
 
         if (streetStallDurationInitial > 0):
             self.driveMotor.control.limits(torque = self.forwardStallTorque)
 
-            while (self.driveMotor.speed() > self.forwardStallSpeed):
+            while (self.driveMotor.speed() > self.forwardStallSpeed and streetStallClock.time() < 4000):
                 streetStallErrorKp = linearMap(self.driveMotor.speed(), 0, 1000, 0, self.forwardStreetErrorKp)
                 streetStallErrorKd = linearMap(self.driveMotor.speed(), 0, 1000, 0, self.forwardStreetErrorKd)
                 streetStallErrorSummation, streetStallErrorPrevious, streetStallErrorCorrection = pid((streetStallHeadingTarget - hub.imu.heading()), streetStallErrorKp, self.streetErrorKi, streetStallErrorKd, streetStallErrorKm, streetStallErrorSummation, streetStallErrorPrevious)
@@ -374,7 +376,7 @@ class FutureEngineers:
 
             self.driveMotor.control.limits(torque = self.backwardStallTorque)
 
-            while (self.driveMotor.speed() < streetStallSpeedFinal * self.backwardStallSpeed):
+            while (self.driveMotor.speed() < streetStallSpeedFinal * self.backwardStallSpeed and streetStallClock.time() < 4000):
                 streetStallErrorKp = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.backwardStreetErrorKp)
                 streetStallErrorKd = linearMap(self.driveMotor.speed(), 0, -1000, 0, self.backwardStreetErrorKd)
                 streetStallErrorSummation, streetStallErrorPrevious, streetStallErrorCorrection = pid((streetStallHeadingTarget - hub.imu.heading()), streetStallErrorKp, self.streetErrorKi, streetStallErrorKd, streetStallErrorKm, streetStallErrorSummation, streetStallErrorPrevious)
