@@ -21,7 +21,7 @@
 
 ### November 28, 2024 (Thursday)
 
-* Added [<i>4.2. Starting Button Mechanism</i>](#42-starting-button-mechanism) in [<i>Chapter 4: Engineering Factor</i>](#4-engineering-factor) explaning the mechanism the team developed for their robot after the Day 1 of the International competition.
+* Added [<i>4.2. Starting Button Mechanism</i>](#42-starting-button-mechanism) in [<i>Chapter 4: Engineering Factor</i>](#4-engineering-factor) explaining the start button mechanism the team developed for their robot after the Day 1 of the International competition.
 * Updated [<i>Source Code</i>](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/tree/main/Source%20Code) to include the latest program for the robot used during the Day 1 Practice Time of the International Competition. Significant changes were made to the program on Day 1, including the robot's movements and obstacle recognition capabilities.
 
 ***
