@@ -17,6 +17,6 @@ This directory contains multiple files displaying the specific step by step inst
 | ----------------------------------- | ------------------------------- |
 |[![](https://github.com/user-attachments/assets/3f483c1a-727c-46e8-af8a-ecd24eb055ba)](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/OpenMV%20Cam%20H7%20Plus%20Mount.pdf)|[![](https://github.com/user-attachments/assets/e55ab5d4-6b60-45f2-82fc-69319e8e2d15)](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/Distance%20Sensor%20Mount.pdf)|
 
-| Whole Robot - 298 pages             |
-| ----------------------------------- |
-|[<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Virtual%20Model/Isometric_View_Virtual-BSU_Spartan_Team.png?">](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/Whole%20Robot-Part%201_Building%20Instructions.pdf)|
+| Starting Button Mechanism - 51 pages| Whole Robot - 298 pages             |
+| ----------------------------------- | ----------------------------------- |
+|[![](https://github.com/user-attachments/assets/a83b6ab9-6687-4892-b147-a5a17b673538)](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/Starting%20Button%20Mechanism%20Building%20Instructions.pdf#js-repo-pjax-container)|[<img src = "https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Virtual%20Model/Isometric_View_Virtual-BSU_Spartan_Team.png?">](https://github.com/AbeBuck/BSU-Spartan-Team_FE-2024/blob/main/Vehicle%20Building%20Instructions/Whole%20Robot-Part%201_Building%20Instructions.pdf)|
